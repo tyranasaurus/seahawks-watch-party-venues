@@ -1,0 +1,1198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Seahawks Watch Party Venues — Eastside Seattle</title>
+<style>
+  :root{
+    --navy:#002244;--green:#69be28;--grey:#a5acaf;--ink:#1a1f24;--muted:#5b6670;
+    --line:#e3e7eb;--bg:#f4f6f8;--card:#ffffff;--pick:#fff8e6;--pickline:#e9c84b;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.5;}
+  header{background:linear-gradient(135deg,var(--navy) 0%,#013a6b 100%);color:#fff;padding:34px 22px 30px;border-bottom:5px solid var(--green);}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 22px;}
+  header .wrap{padding:0;}
+  h1{margin:0 0 6px;font-size:27px;letter-spacing:-.3px;}
+  .sub{color:#cdd8e2;font-size:15px;margin:0;}
+  .meta-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px;}
+  .chip{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);color:#eaf1f7;padding:5px 12px;border-radius:999px;font-size:13px;font-weight:600;}
+  .chip b{color:var(--green);}
+
+  .note{background:#fffaf0;border:1px solid #f0dca8;color:#6a5418;padding:13px 16px;border-radius:10px;font-size:13.5px;margin:22px 0 8px;}
+
+  .legend{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:15px 18px;margin:14px 0 6px;font-size:13.5px;}
+  .legend h3{margin:0 0 9px;font-size:13px;text-transform:uppercase;letter-spacing:.5px;color:var(--navy);}
+  .legend-row{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;}
+  .legend .ldesc{color:var(--muted);font-size:12.5px;margin-top:9px;}
+
+  .src{display:inline-block;font-size:10.5px;font-weight:800;padding:2px 7px;border-radius:5px;letter-spacing:.2px;white-space:nowrap;vertical-align:middle;}
+  .s-call{background:#dff4dc;color:#1f6b22;border:1px solid #b6e0ad;}
+  .s-web{background:#e0eefb;color:#1559a3;border:1px solid #bcd9f5;}
+  .s-guess{background:#fdf0d6;color:#8a5a08;border:1px solid #f0d79a;}
+  .s-review{background:#efe3f7;color:#7a3ca3;border:1px solid #ddc4ee;}
+  .s-unsure{background:#eef0f2;color:#6a737c;border:1px solid #d8dde1;}
+
+  /* chart */
+  .chart-card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px 24px 18px;margin:14px 0 6px;box-shadow:0 1px 2px rgba(0,0,0,.04);}
+  .chart-card h2{margin:0 0 2px;font-size:18px;color:var(--navy);}
+  .chart-card .csub{margin:0 0 18px;font-size:13px;color:var(--muted);}
+  .chart{display:flex;align-items:flex-end;gap:14px;height:200px;padding:0 4px;border-bottom:2px solid var(--line);}
+  .bar-col{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;gap:6px;}
+  .bar-val{font-size:14px;font-weight:800;color:var(--navy);}
+  .bar{width:100%;max-width:78px;background:linear-gradient(180deg,var(--green) 0%,#4f9a1c 100%);border-radius:7px 7px 0 0;transition:height .5s;min-height:4px;}
+  .bar-axis{display:flex;gap:14px;padding:9px 4px 0;}
+  .bar-axis div{flex:1;text-align:center;font-size:11.5px;font-weight:700;color:var(--muted);max-width:106px;margin:0 auto;}
+  .bar-axis .price{display:block;color:var(--ink);font-size:12px;}
+
+  .controls{position:sticky;top:0;z-index:20;background:var(--bg);padding:16px 0 12px;margin-top:14px;border-bottom:1px solid var(--line);}
+  .controls .wrap{padding:0 22px;}
+  #search{width:100%;padding:11px 14px;font-size:15px;border:1px solid var(--line);border-radius:9px;background:#fff;outline:none;}
+  #search:focus{border-color:var(--navy);}
+  .filters{display:flex;flex-wrap:wrap;gap:7px;margin-top:11px;align-items:center;}
+  .flabel{font-size:12px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-right:2px;}
+  .btn{border:1px solid var(--line);background:#fff;color:var(--ink);padding:6px 13px;border-radius:999px;font-size:13px;cursor:pointer;font-weight:600;transition:all .12s;}
+  .btn:hover{border-color:var(--navy);}
+  .btn.active{background:var(--navy);color:#fff;border-color:var(--navy);}
+  .btn.starredbtn.active{background:#e9c84b;border-color:#e9c84b;color:#5a430a;}
+  .btn.calledbtn.active{background:#1f6b22;border-color:#1f6b22;color:#fff;}
+  #sort{padding:7px 11px;border:1px solid var(--line);border-radius:999px;font-size:13px;font-weight:600;background:#fff;cursor:pointer;}
+
+  .count{font-size:13px;color:var(--muted);margin:16px 0 4px;}
+
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(345px,1fr));gap:18px;padding:8px 0 50px;}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px;display:flex;flex-direction:column;box-shadow:0 1px 2px rgba(0,0,0,.04);}
+  .card.starred{background:var(--pick);border-color:var(--pickline);box-shadow:0 2px 10px rgba(233,200,75,.18);}
+  .card.called{border-left:5px solid #1f6b22;}
+  .card-top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;}
+  .vname{font-size:18.5px;font-weight:800;margin:0;letter-spacing:-.2px;}
+  .est-tag{flex:0 0 auto;text-align:center;background:var(--navy);color:#fff;border-radius:9px;padding:5px 10px;line-height:1.15;}
+  .est-tag .lab{display:block;font-size:9px;font-weight:700;letter-spacing:.5px;color:#9fc4e6;text-transform:uppercase;}
+  .est-tag .amt{display:block;font-size:15px;font-weight:800;}
+  .flags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:7px;}
+  .starflag{display:inline-block;background:#e9c84b;color:#5a430a;font-size:10.5px;font-weight:800;padding:3px 9px;border-radius:6px;text-transform:uppercase;letter-spacing:.6px;}
+  .calledflag{display:inline-block;background:#1f6b22;color:#fff;font-size:10.5px;font-weight:800;padding:3px 9px;border-radius:6px;text-transform:uppercase;letter-spacing:.6px;}
+  .badges{display:flex;flex-wrap:wrap;gap:6px;margin:9px 0 13px;}
+  .badge{font-size:11.5px;font-weight:700;padding:3px 9px;border-radius:6px;}
+  .b-city{background:#e8eef4;color:var(--navy);}
+  .b-type{background:#eaf6e0;color:#3d6b16;}
+  .b-far{background:#fbe9e9;color:#9a3434;}
+
+  .desc{font-size:13.8px;color:#39424b;margin:0 0 12px;}
+
+  .exp{display:flex;align-items:center;gap:9px;margin:2px 0 13px;padding:8px 11px;border-radius:9px;font-size:12.6px;flex-wrap:wrap;}
+  .exp-hi{background:#eaf7e3;border:1px solid #bfe3ad;}
+  .exp-mid{background:#fbf3dd;border:1px solid #ecd7a0;}
+  .exp-lo{background:#f3e7e6;border:1px solid #ddbab4;}
+  .exp-score{font-weight:800;font-size:16px;color:var(--navy);flex:0 0 auto;line-height:1;}
+  .exp-score small{font-size:10px;color:var(--muted);font-weight:700;}
+  .exp-meter{display:flex;gap:2px;flex:0 0 auto;}
+  .exp-seg{width:8px;height:13px;border-radius:2px;background:#dfe3e7;}
+  .exp-seg.on-hi{background:#4f9a1c;}
+  .exp-seg.on-mid{background:#d39a1a;}
+  .exp-seg.on-lo{background:#c2553f;}
+  .exp-note{color:#46505a;flex:1 1 150px;min-width:130px;font-weight:600;}
+
+  .callnote{background:#eef7ec;border:1px solid #c4e3bd;border-radius:9px;padding:9px 12px;margin-bottom:12px;font-size:12.8px;color:#1f5b23;}
+  .callnote b{color:#16481a;}
+
+  .estbox{background:#f7faf2;border:1px solid #dcebcb;border-radius:9px;padding:10px 12px;margin-bottom:12px;font-size:13px;}
+  .estbox .er{display:flex;justify-content:space-between;gap:10px;padding:3px 0;align-items:baseline;}
+  .estbox .er .k{color:var(--muted);font-weight:600;flex:0 0 auto;}
+  .estbox .er .v{text-align:right;font-weight:600;color:var(--ink);}
+  .estbox .er.tot{border-top:1px dashed #cdddb7;margin-top:5px;padding-top:6px;}
+  .estbox .er.tot .k{color:var(--navy);font-weight:800;}
+  .estbox .er.tot .v{color:#3d6b16;font-weight:800;font-size:14px;}
+
+  .rows{font-size:13.5px;border-top:1px solid var(--line);padding-top:12px;margin-top:auto;}
+  .row{display:flex;gap:10px;padding:5px 0;align-items:baseline;}
+  .row .k{flex:0 0 92px;color:var(--muted);font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:.3px;padding-top:1px;}
+  .row .v{flex:1;color:var(--ink);}
+  .v .tv{color:#0a5c1d;font-weight:600;}
+  .yes{color:#2e7d32;font-weight:700;}
+  .no{color:#b23b3b;font-weight:700;}
+  .ask{color:#8a6d1a;font-weight:700;}
+  a{color:#0a66b8;text-decoration:none;}
+  a:hover{text-decoration:underline;}
+  .links{display:flex;flex-wrap:wrap;gap:6px 14px;margin-top:13px;font-size:13.5px;font-weight:600;}
+
+  .expwrap{display:flex;align-items:center;gap:11px;flex-wrap:wrap;}
+  .expwrap input[type=range]{flex:0 0 200px;accent-color:#6b3fa0;cursor:pointer;height:5px;}
+  #expLabel{font-size:13px;font-weight:800;color:#6b3fa0;min-width:118px;}
+
+  details.closed{margin:14px 0 60px;background:#fff;border:1px solid var(--line);border-radius:12px;padding:4px 18px;}
+  details.closed summary{cursor:pointer;font-weight:700;padding:14px 0;color:var(--muted);}
+  details.closed ul{margin:0 0 16px;padding-left:18px;font-size:13.5px;color:var(--muted);}
+  details.closed li{margin:5px 0;}
+
+  /* room photo thumbnail + lightbox */
+  .vthumb{position:relative;display:block;width:100%;height:118px;border-radius:10px;overflow:hidden;margin-bottom:13px;cursor:zoom-in;background:#e8ecef;border:1px solid var(--line);}
+  .vthumb img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .35s ease;}
+  .vthumb:hover img{transform:scale(1.05);}
+  .vthumb .vcap{position:absolute;left:0;right:0;bottom:0;padding:16px 9px 5px;font-size:10.5px;line-height:1.25;color:#fff;background:linear-gradient(transparent,rgba(0,0,0,.8));font-weight:600;}
+  .vthumb .vexp{position:absolute;top:7px;right:7px;background:rgba(0,0,0,.55);color:#fff;font-size:10px;font-weight:700;padding:2px 7px;border-radius:5px;opacity:.92;}
+  .vthumb .vtag{position:absolute;top:7px;left:7px;font-size:9px;font-weight:800;padding:2px 7px;border-radius:5px;text-transform:uppercase;letter-spacing:.3px;color:#fff;}
+  .vtag-actual{background:#1f6b22;}
+  .vtag-vibe{background:#9a6a12;}
+
+  .lb{position:fixed;inset:0;background:rgba(0,0,0,.9);z-index:100;display:none;align-items:center;justify-content:center;flex-direction:column;padding:30px 24px;cursor:zoom-out;}
+  .lb.open{display:flex;}
+  .lb img{max-width:92vw;max-height:78vh;border-radius:8px;box-shadow:0 10px 50px rgba(0,0,0,.55);}
+  .lb .lbcap{color:#eef2f6;font-size:14px;max-width:680px;text-align:center;margin-top:18px;line-height:1.5;}
+  .lb .lbtag{display:inline-block;font-size:10px;font-weight:800;padding:2px 9px;border-radius:5px;text-transform:uppercase;letter-spacing:.3px;color:#fff;margin-right:8px;vertical-align:middle;}
+  .lb .lbclose{position:absolute;top:14px;right:22px;color:#fff;font-size:34px;font-weight:300;cursor:pointer;line-height:1;opacity:.85;}
+  .lb .lbclose:hover{opacity:1;}
+
+  footer{background:var(--navy);color:#aebfce;font-size:12.5px;padding:22px;text-align:center;}
+  .hidden{display:none !important;}
+  @media (max-width:520px){.row .k{flex:0 0 82px;}h1{font-size:22px;}.chart{height:170px;}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <h1>🏈 Seahawks Watch Party — Eastside &amp; Seattle Venue Guide</h1>
+    <p class="sub">Private / semi-private spots to watch the game with ~30 people · Bellevue · Kirkland · Redmond · Issaquah · Woodinville · Seattle</p>
+    <div class="meta-row">
+      <span class="chip">📅 Game day: <b>&nbsp;Sun, Sept 9</b></span>
+      <span class="chip">👥 Party size: <b>&nbsp;~30</b></span>
+      <span class="chip">🎯 Optimized for: <b>&nbsp;comfy + private · exciting · drinks flowing</b></span>
+      <span class="chip">🔊 Need: <b>&nbsp;NFL audio</b></span>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="legend">
+    <h3>🔎 How sure are we? — every fact below is tagged</h3>
+    <div class="legend-row">
+      <span><span class="src s-call">✅ called</span> Confirmed by phone</span>
+      <span><span class="src s-web">📄 online</span> Stated on venue website / listing</span>
+      <span><span class="src s-guess">≈ estimate</span> Our reasoned guess</span>
+      <span><span class="src s-review">💬 reviews</span> Customer reviews / word-of-mouth (hearsay)</span>
+      <span><span class="src s-unsure">❓ unsure</span> Unknown — needs a call</span>
+    </div>
+    <p class="ldesc">As you call places, tell me what they say and I'll flip those fields to <b>✅ called</b>, add a green "Called" ribbon to the venue, and log your notes. So far only <b>Postdoc Brewing</b> has been called. Some fields below have been upgraded from <b>❓ unsure</b> to <b>💬 reviews</b> using online customer reviews / listings / word-of-mouth: this is unconfirmed hearsay, weaker than the venue's own website, so still worth a confirming call.</p>
+  </div>
+
+  <div class="note">
+    <b>Cost estimates</b> are all-in for 30 people over a ~3-hour game (reservation/room + food &amp; beverage), <b>excluding WA tax (~10.1%) and 18–22% service charge</b>. NFL Sundays run higher. <b>NFL audio</b> = can they play the game's sound (not just the picture) — many sports bars only run audio for one featured game, and some breweries have no sound system at all, so confirm it for every venue. <b>Experience rating (x/10)</b> scores the watch-party we actually want: a comfortable, private or semi-private space that's still exciting with the drinks flowing. <b>10</b> = your own (or roped-off) room, big screens with game audio, plenty of drinks on tap, and room to get loud — <b>lounge / couch seating is a plus, not a minus</b> (comfy can still be rowdy). Points come off for small or single screens, no/limited audio, beer-only taprooms, or a sleepy room with nothing to rally around — <b>not</b> for being comfortable.
+  </div>
+
+  <div class="chart-card">
+    <h2>📊 Cost distribution — <span id="chartCount">33 venues</span></h2>
+    <p class="csub">Count of venues by estimated all-in cost for 30 people (reservation + F&amp;B, before tax/service). <b>Recomputes live as you change the filters.</b></p>
+    <div class="chart" id="chart"></div>
+    <div class="bar-axis" id="axis"></div>
+  </div>
+</div>
+
+<div class="controls">
+  <div class="wrap">
+    <input id="search" type="text" placeholder="🔍 Search venues, cities, features…" oninput="render()">
+    <div class="filters">
+      <span class="flabel">City</span>
+      <button class="btn city active" data-city="all" onclick="setCity(this)">All</button>
+      <button class="btn city" data-city="Bellevue" onclick="setCity(this)">Bellevue</button>
+      <button class="btn city" data-city="Kirkland" onclick="setCity(this)">Kirkland</button>
+      <button class="btn city" data-city="Redmond" onclick="setCity(this)">Redmond</button>
+      <button class="btn city" data-city="Issaquah" onclick="setCity(this)">Issaquah</button>
+      <button class="btn city" data-city="Sammamish" onclick="setCity(this)">Sammamish</button>
+      <button class="btn city" data-city="Woodinville" onclick="setCity(this)">Woodinville</button>
+      <button class="btn city" data-city="Seattle" onclick="setCity(this)">Seattle</button>
+    </div>
+    <div class="filters">
+      <span class="flabel">Type</span>
+      <button class="btn type active" data-type="all" onclick="setType(this)">All</button>
+      <button class="btn type" data-type="Sports bar" onclick="setType(this)">Sports bars</button>
+      <button class="btn type" data-type="Brewery" onclick="setType(this)">Breweries</button>
+      <button class="btn type" data-type="Entertainment" onclick="setType(this)">Eatertainment</button>
+    </div>
+    <div class="filters">
+      <span class="flabel">Outside food</span>
+      <button class="btn food active" data-food="all" onclick="setFood(this)">All</button>
+      <button class="btn food" data-food="allowed" onclick="setFood(this)">✅ Allowed</button>
+      <button class="btn food" data-food="no" onclick="setFood(this)">🚫 Not allowed</button>
+      <button class="btn food" data-food="unsure" onclick="setFood(this)">❓ Unsure</button>
+    </div>
+    <div class="filters">
+      <span class="flabel">NFL audio</span>
+      <button class="btn audio active" data-audio="all" onclick="setAudio(this)">All</button>
+      <button class="btn audio" data-audio="yes" onclick="setAudio(this)">🔊 Likely yes</button>
+      <button class="btn audio" data-audio="no" onclick="setAudio(this)">🔇 No</button>
+      <button class="btn audio" data-audio="unsure" onclick="setAudio(this)">❓ Unsure</button>
+    </div>
+    <div class="filters expwrap">
+      <span class="flabel">Min experience</span>
+      <input type="range" min="0" max="10" step="1" value="0" id="expSlider" oninput="setExp(this)">
+      <span id="expLabel">Any (0+/10)</span>
+    </div>
+    <div class="filters">
+      <button class="btn starredbtn" data-starred="1" onclick="toggleStarred(this)">⭐ Starred only</button>
+      <button class="btn calledbtn" data-called="1" onclick="toggleCalled(this)">✅ Called only</button>
+      <button class="btn" onclick="resetFilters()">↺ Reset filters</button>
+      <span class="flabel" style="margin-left:8px;">Sort</span>
+      <select id="sort" onchange="render()">
+        <option value="default">Recommended</option>
+        <option value="starred">★ Starred first</option>
+        <option value="expDesc">Experience: high → low</option>
+        <option value="costAsc">Cost: low → high</option>
+        <option value="costDesc">Cost: high → low</option>
+      </select>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="count" id="count"></div>
+  <div class="grid" id="grid"></div>
+
+  <details class="closed">
+    <summary>⚠️ Verified closed / ruled out — do NOT pursue (checked June 2026)</summary>
+    <ul>
+      <li><b>Legion Sports Bar</b> (Bellevue) — Sherman/Chancellor's bar closed Apr 30, 2026. Would've been the perfect theme pick. Gone.</li>
+      <li><b>Sam's Tavern — Bellevue &amp; Capitol Hill</b> — solid burger-and-sports taverns with HD TVs throughout, but both are permanently closed: Bellevue (931 108th Ave NE) is listed under "Archives" on the chain's site, and the original Capitol Hill bar (1024 E Pike St) shut its doors in May 2026 after 13 years. The brand's <b>only surviving location is South Lake Union</b> — now added to the grid above as a cross-lake (Seattle) option.</li>
+      <li><b>The Parlor Billiards &amp; Spirits</b> (Bellevue) — closed.</li>
+      <li><b>Tap House Grill</b> (Bellevue) — closed.</li>
+      <li><b>Wilde Rover Irish Pub</b> (Kirkland) — closed Jan 2024.</li>
+      <li><b>The Lodge Sports Grille</b> (Kirkland) — Kirkland location closed.</li>
+      <li><b>Hops n Drops / Hop Jack's</b> (Issaquah/Klahanie) — closed Mar 2026.</li>
+      <li><b>The Stone House</b> (Redmond) — closed Apr 2026.</li>
+      <li><b>SIP / Sip Wine Bar</b> (Issaquah Highlands) — closed (now Amarone).</li>
+      <li><b>Rogue Issaquah Brewhouse</b> — closed May 2026.</li>
+      <li><b>9 Yards, Dirty Bucket, Locust Cider, Sumerian</b> (Woodinville) — all closed.</li>
+      <li><b>Matador Redmond</b> — ruled out: walk-in only, no reservations, no private space.</li>
+      <li><b>Flatstick Pub Bellevue</b> — does not exist (nearest: Kirkland, Redmond &amp; Seattle). <b>Punch Bowl Social</b> &amp; <b>Lucky Strike</b> — no Seattle-proper location (Lucky Strike is Bellevue/Lynnwood only).</li>
+      <li><b>Pomegranate Bistro</b> (Redmond) — lovely private rooms but no sports TVs; not a watch-party fit.</li>
+      <li><b>Seattle closures (verified June 2026):</b> Lodge Sports Grille (all Seattle locations), Spitfire (Belltown), The Sport Restaurant &amp; Bar (Seattle Center), Henry's Tavern, T.S. McHugh's, Floyd's Place, 95 Slide, plus Quality Athletics &amp; Pyramid Alehouse — the Pyramid space is now <b>Hatback (Victory Hall)</b>, included above. <b>Optimism Brewing</b> is now Stoup Capitol Hill. <b>The Pine Box</b> (Cap Hill) is open and could host 30 (100-inch projector + audio, wood-fired pizza), but it's a craft-beer hall, not a sports bar — confirm they'll run the game with sound before counting on it.</li>
+    </ul>
+  </details>
+</div>
+
+<footer>
+  Researched June 2026. Addresses, phones &amp; closures verified online; prices &amp; policies tagged by source above. Built as a shareable, living reference — facts get upgraded to ✅ called as we confirm them. Not a booking confirmation.
+</footer>
+
+<script>
+// ============================================================================
+// ⭐ STARRED VENUES — edit this list by hand to star / unstar venues.
+// Put each venue's EXACT name (copy it from a card) on its own line in quotes.
+// Starred venues get a ⭐ badge + gold highlight, and work with the
+// "⭐ Starred only" filter and "★ Starred first" sort. Save the file and refresh.
+//   Example:
+//     const STARRED = [
+//       "Moss Bay Hall",
+//       "Tavern Hall",
+//     ];
+// ============================================================================
+const STARRED = [
+  "Moss Bay Hall",
+  "Triplehorn Brewing Co.",
+  "Sam's Tavern — South Lake Union",
+];
+
+// src codes: "call" confirmed by phone · "web" stated online · "guess" our estimate · "review" customer reviews/hearsay · "unsure" unknown
+const venues = [
+  {
+    name:"Triplehorn Brewing Co.", city:"Woodinville", type:"Brewery", pick:true, far:false, called:true,
+    exp:4, expNote:"Private room, but only one small corner TV off your laptop and beer-only taps — easy to host, low on roar.",
+    callNotes:"Called Jun 2026 — the semi-private back room does NOT have its own big screen. They give you an HDMI hookup, so you put the game on a laptop and run it to one small TV mounted in the corner of the room. The 7 big-screen TVs are out in the main taproom, not your private room.",
+    est:800, estLabel:"~$800", estS:"call",
+    res:"$300 (3 hrs @ $100/hr room)", resS:"call",
+    fb:"$0 min · ~$450–600 in beer", fbS:"call",
+    desc:"The best low-cost private booking that's confirmed to show the Seahawks: a semi-private back room at a flat hourly rate, no beverage minimum, food trucks allowed, and it's hosted Super Bowl parties before. The catch (confirmed by phone): the room itself has just one small wall-mounted TV in the corner that you feed from your own laptop over HDMI — the venue's 7 big screens are in the main taproom, not your room.",
+    min:"None — no beverage minimum", minClass:"yes", minS:"call",
+    food:"Catering / food trucks allowed w/ approval", foodClass:"yes", foodS:"call",
+    audio:"Yes, but via your laptop → HDMI through the small corner TV's speakers", audioClass:"ask", audioS:"call",
+    tv:"Back room: ONE small wall-mounted TV in the corner, fed by HDMI from your laptop (the 7 big-screen TVs are in the main taproom, not the private room)", tvS:"call",
+    addr:"19510 144th Ave NE, Ste E6, Woodinville, WA 98072",
+    links:[["Website","https://triplehornbrewing.com/"],["Reserve room","https://triplehornbrewing.com/reservations/"]],
+    phone:"(425) 242-7979"
+  },
+  {
+    name:"Tavern Hall", city:"Bellevue", type:"Sports bar", pick:true, far:false, called:false,
+    exp:9, expNote:"Beer-hall sports bar: 40+ TVs, full bar, loud crowd — your room has its own screens steps from the action.",
+    est:1800, estLabel:"~$1,500–2,000", estS:"guess",
+    res:"$500 deposit (applies to bill)", resS:"web",
+    fb:"~$1,500 F&B min (NFL Sun)", fbS:"guess",
+    desc:"Bellevue Square's flagship beer-hall sports bar — 40+ TVs and bookable rooms sized for almost exactly 30. The 'Clock Room' holds ~30 with its own 2 flatscreens + shuffleboard; bigger rooms have presentation-enabled screens.",
+    min:"F&B minimum, varies by room/date", minClass:"ask", minS:"guess",
+    food:"Not allowed — full kitchen", foodClass:"no", foodS:"guess",
+    audio:"Sound kept up 'for the most critical moments' (local sports-bar guide); confirm your private room", audioClass:"yes", audioS:"review",
+    tv:"40+ TVs venue-wide; private rooms have 2–4 dedicated/presentation screens", tvS:"web",
+    addr:"505 Bellevue Square, Bellevue, WA 98004",
+    links:[["Website","https://www.tavern-hall.com/"],["Private parties","https://www.tavern-hall.com/private-parties"]],
+    phone:"(425) 454-7500"
+  },
+  {
+    name:"Flatstick Pub — Kirkland", city:"Kirkland", type:"Entertainment", pick:true, far:false, called:false,
+    exp:6, expNote:"Fun beer-and-minigolf vibe with lots of taps, but your room is a single HDMI TV, not a wall of big screens.",
+    est:900, estLabel:"~$900", estS:"guess",
+    res:"~$450 (3 hrs @ $150/hr room)", resS:"web",
+    fb:"$0 min · ~$450 drinks (BYO food)", fbS:"web",
+    desc:"The most transparent group pricing on this list, and the rare bar that lets you bring your own food. Indoor mini-golf + Duffleboard keep non-football folks busy. Reserved rooms come with a TV + HDMI.",
+    min:"No stated F&B minimum — pay the room rate", minClass:"yes", minS:"web",
+    food:"Outside food / catering ALLOWED (no outside drinks)", foodClass:"yes", foodS:"web",
+    audio:"Unsure — reserved rooms = one TV + HDMI (site); game-broadcast audio not stated online; confirm", audioClass:"ask", audioS:"unsure",
+    tv:"Private rooms = your own TV w/ HDMI; pub has a sports watch zone", tvS:"web",
+    addr:"15 Lake St, Suite 100, Kirkland, WA 98033",
+    links:[["Website","https://flatstickpub.com/kirkland/"],["Plan an event","https://flatstickpub.com/plan-an-event/"]],
+    phone:"(425) 242-1618 (call/text)"
+  },
+  {
+    name:"Moss Bay Hall", city:"Kirkland", type:"Sports bar", pick:true, far:false, called:true,
+    exp:9, expNote:"Private waterfront room with a big projector, real sound, full bar and lounge seating — comfy AND exclusive, and just as easy to get loud. Closest fit to the brief.",
+    callNotes:"Called Jun 2026 — $200 booking fee plus an F&B minimum they quoted as a wide $500–1,500 range; couldn't get them to pin it down further (likely varies by date/room/group size). Worth a follow-up to learn what lands you at the low end.",
+    est:1200, estLabel:"~$700–1,700", estS:"call",
+    res:"$200 booking fee", resS:"call",
+    fb:"$500–1,500 F&B min (range)", fbS:"call",
+    desc:"A Kirkland-waterfront venue that markets 'watch party' events. The private room is purpose-built for group viewing: a large projector screen, multiple TVs, lounge couches and pro sound. The most polished, comfortable option.",
+    min:"$500–1,500 F&B min — they wouldn't narrow it", minClass:"ask", minS:"call",
+    food:"Not allowed — full-service kitchen", foodClass:"no", foodS:"guess",
+    audio:"Likely YES — room has a sound system (verify NFL feed)", audioClass:"ask", audioS:"web",
+    tv:"Private room: big projector + multiple TVs + sound system + couches", tvS:"web",
+    addr:"Kirkland waterfront, downtown (98033)",
+    links:[["Website","https://thehall.group/moss-bay"],["Plan event","https://thehall.group/plan-your-event"]],
+    phone:"(425) 285-9132"
+  },
+  {
+    name:"Pub 85 (Pogacha)", city:"Kirkland", type:"Sports bar", pick:true, far:false, called:false,
+    exp:9, expNote:"Classic game-day sports bar: ~24 TVs, 50 taps, every seat a view — built for a loud crowd.",
+    est:1050, estLabel:"~$1,050", estS:"guess",
+    res:"$0 (reserved section)", resS:"guess",
+    fb:"~$1,050 (~$35/person)", fbS:"guess",
+    desc:"A true game-day sports bar: ~24 TVs so every seat has a view, plus two in the beer garden, 50 beers on draft, darts and free pool. Takes reservations of all sizes with an in-house catering team.",
+    min:"Possible minimum on game day", minClass:"ask", minS:"guess",
+    food:"Not allowed — full kitchen + catering", foodClass:"no", foodS:"guess",
+    audio:"Unsure — 24-TV sports bar, but no verifiable source confirms game audio; call to confirm sound", audioClass:"ask", audioS:"unsure",
+    tv:"~24 TVs throughout + 2 in beer garden; 50 draft taps", tvS:"web",
+    addr:"12859 NE 85th St, Kirkland, WA 98033",
+    links:[["Website","https://www.pub85.com/"]],
+    phone:"(425) 576-8640"
+  },
+  {
+    name:"The Goose Pub & Eatery", city:"Bellevue", type:"Sports bar", pick:true, far:false, called:false,
+    exp:9, expNote:"The 12s' pub: Sunday Ticket, opens 10am, flatscreens everywhere and a full bar of fired-up fans.",
+    est:850, estLabel:"~$850", estS:"guess",
+    res:"$0 (reserved section)", resS:"guess",
+    fb:"No min · ~$850 (~$28/person)", fbS:"guess",
+    desc:"The most overtly Seahawks-focused pub on the Eastside — carries NFL Sunday Ticket and opens at 10am on Seahawks Sundays. Casual, affordable, game-focused. Best low-budget pick if a walled-off room isn't essential.",
+    min:"Likely none / low for a section", minClass:"yes", minS:"guess",
+    food:"Not allowed — full pub menu", foodClass:"no", foodS:"guess",
+    audio:"Yes (listing): 'ideal place to watch sports... when they turn the sound on' + Sunday Ticket", audioClass:"yes", audioS:"review",
+    tv:"Big flatscreens throughout + NFL Sunday Ticket; 10am Seahawks open", tvS:"web",
+    addr:"12001 NE 12th St, Bellevue, WA 98005",
+    links:[["Website","https://thegoosepub.com/"]],
+    phone:"(425) 454-1554"
+  },
+
+  {
+    name:"Bellevue Brewing — Spring District", city:"Bellevue", type:"Brewery", pick:false, far:false, called:false,
+    exp:8, expNote:"Monster AV (16 TVs + 6 projectors + a TV wall) and a buzzing room — beer-only taps keep it just under a 10.",
+    est:900, estLabel:"~$900", estS:"guess",
+    res:"$0 (claim a section)", resS:"guess",
+    fb:"No min · ~$900 (~$30/person)", fbS:"guess",
+    desc:"Unbeatable for watching the game: 16 TVs, 6 projectors and a TV wall, plus a 2,500 sq ft beer garden and full food all day. The catch — no formal private room, and it gets buzzing on big games. A 'claim a section early + call ahead' play.",
+    min:"N/A (no formal booking)", minClass:"yes", minS:"guess",
+    food:"Not allowed — full in-house menu", foodClass:"no", foodS:"guess",
+    audio:"Unsure — many TVs/projectors, but no source confirms game AUDIO; ask if they play game sound", audioClass:"ask", audioS:"unsure",
+    tv:"Best AV here: 16 TVs + 6 projectors + a TV wall", tvS:"web",
+    addr:"12190 NE District Way, Bellevue, WA 98005",
+    links:[["Website","https://www.bellevuebrewing.com/"]],
+    phone:"(425) 497-8686"
+  },
+  {
+    name:"Forum Social House", city:"Bellevue", type:"Entertainment", pick:false, far:false, called:false,
+    exp:8, expNote:"Dense screens, a sound lounge and a full bar with real game-day energy — semi-private rather than your own four walls.",
+    est:2200, estLabel:"~$2,000–2,400", estS:"guess",
+    res:"Package-based", resS:"guess",
+    fb:"~$60–75/person package", fbS:"guess",
+    desc:"A 20,000 sq ft eatertainment venue in Lincoln Square with the densest screen setup around — 16 TVs, 6 projectors and a TV wall — plus Topgolf Swing Suites and mini-golf. Built for group bookings (10–600) and runs its own game-day tailgates.",
+    min:"Likely F&B minimum / package", minClass:"ask", minS:"guess",
+    food:"Not allowed — in-house program", foodClass:"no", foodS:"guess",
+    audio:"Likely YES — has a sound lounge & tailgate events (confirm)", audioClass:"ask", audioS:"web",
+    tv:"16 TVs + 6 projectors + TV wall; Rockwell Sound Lounge AV", tvS:"web",
+    addr:"700 Bellevue Way NE, Suite 300, Bellevue, WA 98004",
+    links:[["Website","https://www.forumsocialhouse.com/"],["Parties & events","https://www.forumsocialhouse.com/parties-and-events"]],
+    phone:"(425) 658-0500"
+  },
+  {
+    name:"Lucky Strike Bellevue", city:"Bellevue", type:"Entertainment", pick:false, far:false, called:false,
+    exp:7, expNote:"Bowling-bar buzz with a big Luxe screen and full bar, but attention splits between the lanes and the game.",
+    est:1650, estLabel:"~$1,400–2,100", estS:"guess",
+    res:"Deposit to hold date", resS:"web",
+    fb:"~$55/person package", fbS:"guess",
+    desc:"Bowling + sports bar in Lincoln Square. The 'Luxe' lounge gives you 4 private lanes, a dedicated bar and a large event screen — a genuine semi-private space sized for ~24–32. Tons of screens plus arcade and billiards.",
+    min:"Customizable F&B packages; deposit required", minClass:"ask", minS:"web",
+    food:"Not allowed — full F&B operation", foodClass:"no", foodS:"web",
+    audio:"Unsure — site says 'catch the game on flat-screen TVs' but no audio mention; ask re: Luxe screen sound", audioClass:"ask", audioS:"unsure",
+    tv:"10 plasma TVs + 16 projector screens; Luxe lounge has its own big screen", tvS:"web",
+    addr:"700 Bellevue Way NE, Suite 250, Bellevue, WA 98004",
+    links:[["Website","https://www.luckystrikeent.com/location/lucky-strike-bellevue"],["Events","https://www.luckystrikeent.com/location/lucky-strike-bellevue/parties/social-events"]],
+    phone:"(425) 453-5137"
+  },
+  {
+    name:"Central Bar + Restaurant", city:"Bellevue", type:"Sports bar", pick:false, far:false, called:false,
+    exp:7, expNote:"Private side-buyout with a 10-ft projector and a full cocktail bar — comfortable and exclusive; bring the crew and the energy follows.",
+    est:1500, estLabel:"~$1,500", estS:"guess",
+    res:"Folded into F&B minimum", resS:"guess",
+    fb:"~$1,500 side-buyout min", fbS:"guess",
+    desc:"Upscale-casual spot between the W and Westin with a partial-buyout model that cordons off a chunk of the room for ~30. Has a 10-foot projector available for events plus ~8 TVs.",
+    min:"Likely F&B minimum", minClass:"ask", minS:"guess",
+    food:"Not allowed — full kitchen", foodClass:"no", foodS:"guess",
+    audio:"Unsure — hosts a live sports-radio broadcast (audio-capable), but no proof of game sound on the event projector; ask", audioClass:"ask", audioS:"unsure",
+    tv:"~8 TVs + a 10-foot projector available for events", tvS:"web",
+    addr:"10475 NE 6th St, Bellevue, WA 98004",
+    links:[["Website","https://www.centralbar.com/"],["Private events","https://www.centralbar.com/private-events/"]],
+    phone:"(425) 578-7878"
+  },
+  {
+    name:"The Pumphouse Bar & Grill", city:"Bellevue", type:"Sports bar", pick:false, far:false, called:false,
+    exp:7, expNote:"Honest neighborhood sports bar: 16 HD TVs and a full bar — just no jumbo screens.",
+    est:800, estLabel:"~$800", estS:"guess",
+    res:"$0 (reserved section)", resS:"guess",
+    fb:"No min · ~$800 (~$27/person)", fbS:"guess",
+    desc:"A classic, well-loved Bellevue neighborhood sports bar with 16 HD TVs. No formal private room, but it'll reserve a section for a group. If lowest cost beats a walled-off room, this is the value pick.",
+    min:"Likely none / low", minClass:"yes", minS:"guess",
+    food:"Not allowed — full bar/grill menu", foodClass:"no", foodS:"guess",
+    audio:"Unsure — 16 HD TVs confirmed online, but no evidence on game audio; ask about sound", audioClass:"ask", audioS:"unsure",
+    tv:"16 HD TVs", tvS:"web",
+    addr:"11802 NE 8th St, Bellevue, WA 98005",
+    links:[["Website","https://www.pumphousebellevue.com/"]],
+    phone:"(425) 455-4110"
+  },
+  {
+    name:"Dave & Buster's Bellevue", city:"Bellevue", type:"Entertainment", pick:false, far:false, called:false,
+    exp:7, expNote:"Big-screen sports bar with arcade energy and a full bar; the crowd is split with the games.",
+    est:1800, estLabel:"~$1,500–2,100", estS:"guess",
+    res:"Room rental (promos avail.)", resS:"web",
+    fb:"~$50/person package", fbS:"guess",
+    desc:"Reliable big-screen sports bar attached to a huge arcade, with a dedicated event team and semi-private/private spaces. Easy, kid-and-adult-friendly group option in central Bellevue.",
+    min:"Per-person package, min 15 guests", minClass:"ask", minS:"web",
+    food:"Not allowed", foodClass:"no", foodS:"web",
+    audio:"Yes — official site: games on big screens with 'surround sound' / 'epic stadium sound'", audioClass:"yes", audioS:"web",
+    tv:"Many big screens in the sports bar + huge arcade", tvS:"web",
+    addr:"11639 NE 4th St, Bellevue, WA 98004",
+    links:[["Website","https://www.daveandbusters.com/us/en/about/locations/bellevue"],["Book","https://www.daveandbusters.com/us/en/bookings"]],
+    phone:"(425) 372-2550"
+  },
+
+  {
+    name:"The Lime", city:"Kirkland", type:"Sports bar", pick:false, far:false, called:false,
+    exp:8, expNote:"Kirkland's go-to Seahawks room: projector screens, tons of TVs and a packed, rowdy crowd.",
+    est:850, estLabel:"~$850", estS:"guess",
+    res:"$0 (reserved area)", resS:"guess",
+    fb:"Low/no min · ~$850 (~$28/person)", fbS:"guess",
+    desc:"Repeatedly cited as Kirkland's top Seahawks watch spot — 300+ capacity bar & grill / pool hall with multiple projector screens and loads of TVs. Easy to grab a reserved area for 30, casual, no cover.",
+    min:"Likely low / none", minClass:"yes", minS:"guess",
+    food:"Not allowed — bar & grill kitchen", foodClass:"no", foodS:"guess",
+    audio:"Unsure — Kirkland's top Seahawks spot w/ projector screens, but no source confirms audio; confirm", audioClass:"ask", audioS:"unsure",
+    tv:"Multiple projector screens + lots of TVs", tvS:"web",
+    addr:"8544 122nd Ave NE, Kirkland, WA 98033",
+    links:[["Website","https://thelimekirkland.com/"]],
+    phone:"(425) 827-3336"
+  },
+  {
+    name:"The Game Neighborhood Grill", city:"Kirkland", type:"Sports bar", pick:false, far:false, called:false,
+    exp:6, expNote:"TVs in every direction, but a calmer family-dining feel — comfort over crowd roar.",
+    est:800, estLabel:"~$800", estS:"guess",
+    res:"$0 (reserved section)", resS:"guess",
+    fb:"Minimal · ~$800 (~$27/person)", fbS:"guess",
+    desc:"Right in Juanita with 'TVs in every direction' and big screens across an expansive, family-friendly dining area. Group-friendly and lower-key/lower-cost than downtown spots.",
+    min:"Likely minimal", minClass:"yes", minS:"guess",
+    food:"Not allowed — full kitchen", foodClass:"no", foodS:"guess",
+    audio:"Unsure — sports bar w/ many TVs (TripAdvisor), but no source confirms game audio; confirm", audioClass:"ask", audioS:"unsure",
+    tv:"TVs in every direction + big screens", tvS:"web",
+    addr:"13510 100th Ave NE, Kirkland, WA 98034 (Juanita)",
+    links:[["Website","https://thegamegrillandbar.com/"]],
+    phone:"(425) 821-8006"
+  },
+  {
+    name:"Lucky 7 Bar and Grill", city:"Kirkland", type:"Sports bar", pick:false, far:false, called:false,
+    exp:5, expNote:"Cheap and friendly dive with TVs, but small/casual screens and a low-key crowd.",
+    est:700, estLabel:"~$700", estS:"guess",
+    res:"$0 (reservation)", resS:"guess",
+    fb:"No min · ~$700 (~$23/person)", fbS:"guess",
+    desc:"A laid-back Totem Lake neighborhood bar (since 1989) used to hosting sports crowds and groups, with pool, foosball, trivia and karaoke. Probably the cheapest option in Kirkland.",
+    min:"Likely none / low", minClass:"yes", minS:"guess",
+    food:"Not allowed — has its own grill", foodClass:"no", foodS:"guess",
+    audio:"Unsure — '360° view of TVs' for every big game (site), but nothing confirms game sound; confirm", audioClass:"ask", audioS:"unsure",
+    tv:"TVs showing every big game (casual/dive setup)", tvS:"web",
+    addr:"12715 NE 124th St, Kirkland, WA 98034 (Totem Lake)",
+    links:[["Website","https://www.lucky7kirkland.com/"],["Parties","https://lucky7kirkland.com/kirkland-totem-lake-lucky-7-bar-and-grill-party"]],
+    phone:"(425) 821-7717"
+  },
+
+  {
+    name:"Flatstick Pub — Redmond", city:"Redmond", type:"Entertainment", pick:false, far:false, called:false,
+    exp:7, expNote:"More sports-forward Flatstick: 13 screens and a real watch zone alongside the mini-golf.",
+    est:950, estLabel:"~$950", estS:"guess",
+    res:"~$450 (room) or buyout quote", resS:"guess",
+    fb:"~$500 drinks/food", fbS:"guess",
+    desc:"Same fun Flatstick formula in Redmond Town Center but more sports-forward — an explicit sports-bar watch zone plus 13 screens, indoor mini-golf, Duffleboard and arcade. Semi-private spaces and full-venue buyouts.",
+    min:"Likely minimum-spend based", minClass:"ask", minS:"guess",
+    food:"No outside food/drink except desserts (official FAQ) — in-house pizza/snacks + 30+ taps", foodClass:"no", foodS:"web",
+    audio:"Unsure — markets a 'watch zone' for the big game, but no source confirms game audio; confirm", audioClass:"ask", audioS:"unsure",
+    tv:"13 screens + a dedicated sports-bar watch zone", tvS:"web",
+    addr:"7530 164th Ave NE, Suite A108, Redmond, WA 98052",
+    links:[["Website","https://flatstickpub.com/redmond/"]],
+    phone:"kirkland@flatstickpub.com / via site"
+  },
+  {
+    name:"Stan's Bar-B-Q", city:"Issaquah", type:"Sports bar", pick:false, far:false, called:false,
+    exp:8, expNote:"Sunday Ticket on 8 big screens, full bar and BBQ — a tight, loud room when the game's on.",
+    est:1050, estLabel:"~$1,050", estS:"guess",
+    res:"Folded into spend", resS:"guess",
+    fb:"~$1,050 (~$35/person BBQ + drinks)", fbS:"guess",
+    desc:"In the oldest building in downtown Issaquah, Stan's carries NFL Sunday Ticket (every game) on 8 big screens, with a full bar and BBQ catering. Hosts private parties up to 75 — the strongest sports + group combo in Issaquah.",
+    min:"Unsure — online private-party form lists no minimum/deposit; submit form or call", minClass:"ask", minS:"unsure",
+    food:"Not allowed — full kitchen + catering", foodClass:"no", foodS:"guess",
+    audio:"Likely YES — runs Sunday Ticket (confirm)", audioClass:"ask", audioS:"web",
+    tv:"8 big-screen TVs + NFL Sunday Ticket (every game)", tvS:"web",
+    addr:"58 Front St N, Issaquah, WA 98027",
+    links:[["Website","https://stansbarbq.com/"],["Events","https://stansbarbq.com/issaquah-issaquah-stan-s-bar-b-q-events"]],
+    phone:"(425) 392-4551"
+  },
+  {
+    name:"JJ Mahoney's Irish Pub", city:"Redmond", type:"Sports bar", pick:false, far:false, called:false,
+    exp:7, expNote:"Irish pub with 13 TVs (ten 55-inchers) and a lively Seahawks crowd; cozy more than cavernous.",
+    est:900, estLabel:"~$900", estS:"guess",
+    res:"$0–small", resS:"guess",
+    fb:"~$900 (~$30/person)", fbS:"guess",
+    desc:"An authentic Redmond Irish pub where Seahawks games are always popular — 13 TVs including ten 55-inch flatscreens, ~70 seats and a fireplace. Accommodates groups of all sizes; books private events online.",
+    min:"No venue fee; F&B minimum may apply by date/time; menus ~$10–21/person (listing)", minClass:"ask", minS:"web",
+    food:"Confirm with venue", foodClass:"ask", foodS:"unsure",
+    audio:"Known Seahawks pub — opens 10am Sundays for games, 13 TVs; game sound likely, confirm", audioClass:"ask", audioS:"review",
+    tv:"13 TVs incl. ten 55-inch flatscreens", tvS:"web",
+    addr:"8932 161st Ave NE, Redmond, WA 98052",
+    links:[["Website","https://www.jjmahoneys.com/"]],
+    phone:"via website booking"
+  },
+  {
+    name:"Redmond's Bar & Grill", city:"Redmond", type:"Sports bar", pick:false, far:false, called:false,
+    exp:7, expNote:"TVs everywhere, 24 drafts and a big floor used to loud, large parties.",
+    est:950, estLabel:"~$950", estS:"guess",
+    res:"$0 (+20% auto-grat on 8+)", resS:"web",
+    fb:"~$950 incl. gratuity (~$26/person)", fbS:"guess",
+    desc:"A large downtown-Redmond sports bar in the historic Odd Fellows Hall — 'TVs everywhere,' 24 beers on draft and a big floor that handles large parties routinely (dedicated large-party email).",
+    min:"None stated beyond auto-gratuity", minClass:"yes", minS:"web",
+    food:"Confirm — full kitchen, 24 drafts", foodClass:"ask", foodS:"unsure",
+    audio:"Plays game audio (Yelp) — main-room volume can be muffled; the 5×5 Bistro room has better sound", audioClass:"yes", audioS:"review",
+    tv:"TVs everywhere + large bar area", tvS:"web",
+    addr:"7979 Leary Way NE, Redmond, WA 98052",
+    links:[["Website","https://www.redmondsgrill.com/"]],
+    phone:"(425) 558-9800 · info@redmondsgrill.com"
+  },
+  {
+    name:"The Black Duck Cask and Bottle", city:"Issaquah", type:"Sports bar", pick:false, far:false, called:false,
+    exp:6, expNote:"Great craft beer and cocktails, but fewer screens and a gastropub hum, not a roar.",
+    est:1000, estLabel:"~$1,000", estS:"guess",
+    res:"Private-event terms", resS:"guess",
+    fb:"~$1,000 (~$33/person)", fbS:"guess",
+    desc:"A beloved Issaquah gastropub in Gilman Village with a full bar, pool table and TVs for sports. Doesn't take regular reservations but does private events; the ~50-seat pub easily holds 30. Great craft beer/cocktail program.",
+    min:"Unsure — site says 'open for private events' but lists no minimum/fee online; call (425) 395-7138", minClass:"ask", minS:"unsure",
+    food:"Confirm with venue", foodClass:"ask", foodS:"unsure",
+    audio:"Listed among best Issaquah football bars (NFL Sunday Ticket, several TVs); confirm game sound", audioClass:"ask", audioS:"review",
+    tv:"TVs for sports + full bar + pool (fewer screens than Stan's/JJ's)", tvS:"web",
+    addr:"317 NW Gilman Blvd #31-B, Issaquah, WA 98027",
+    links:[["Website","https://www.theblackduckcaskandbottle.com/"]],
+    phone:"(425) 395-7138"
+  },
+  {
+    name:"Postdoc Brewing", city:"Redmond", type:"Brewery", pick:false, far:false, called:true,
+    exp:3, expNote:"Big TVs but confirmed NO sound system — picture only, no game audio — and beer-only. An energy killer.",
+    callNotes:"Called Jun 2026 — ~$600 drink minimum, bring your own food, but NO sound system (can't play NFL audio).",
+    est:600, estLabel:"~$600", estS:"call",
+    res:"Covered by the $600 min", resS:"call",
+    fb:"$600 drink minimum · BYO food", fbS:"call",
+    desc:"A Redmond brewery near Marymoor with a reservable indoor space (up to 50) and big TVs, plus open parking. Bring your own food. IMPORTANT: confirmed by phone they have NO sound system — so you'd get the picture only, no game audio.",
+    min:"$600 drink minimum", minClass:"yes", minS:"call",
+    food:"Bring your own food (BYO)", foodClass:"yes", foodS:"call",
+    audio:"NO — no sound system; cannot play game audio", audioClass:"no", audioS:"call",
+    tv:"Big TVs for local sports (picture only — no sound)", tvS:"call",
+    addr:"17625 NE 65th St, Suite 100, Redmond, WA 98052",
+    links:[["Website","https://www.postdocbrewing.com/"],["Events","https://www.postdocbrewing.com/events"]],
+    phone:"(425) 658-4963"
+  },
+  {
+    name:"Big Block Brewery — Sammamish", city:"Sammamish", type:"Brewery", pick:false, far:false, called:false,
+    exp:4, expNote:"Fun beer garden, but screens aren't even confirmed and it's beer-only — verify before counting on it.",
+    est:700, estLabel:"~$700", estS:"guess",
+    res:"Rental (quote)", resS:"guess",
+    fb:"~$450 beer (BYO food free)", fbS:"guess",
+    desc:"A flexible Sammamish taproom (21+) with a 4,000 sq ft beer garden, fire pit and yard games that lets you bring your own food anytime. Private rentals available. Confirm they can show AND broadcast the game.",
+    min:"Unsure — private bookings via info@bigblockbrewery.com; no minimum/fee published online; call", minClass:"ask", minS:"unsure",
+    food:"Outside food ALLOWED anytime (free)", foodClass:"yes", foodS:"web",
+    audio:"TVs run muted (review) — game sound isn't standard; ask them to turn the audio on", audioClass:"ask", audioS:"review",
+    tv:"Has video screens showing sports — a reviewer watched the Seahawks game on them (TripAdvisor)", tvS:"review",
+    addr:"3310 E Lake Sammamish Pkwy SE, Sammamish, WA 98075",
+    links:[["Website","https://www.bigblockbrewery.com/sammamish-taproom"]],
+    phone:"(425) 270-3757 · info@bigblockbrewery.com"
+  },
+  {
+    name:"Black Raven Brewing — Woodinville", city:"Woodinville", type:"Brewery", pick:false, far:false, called:false,
+    exp:3, expNote:"Beer-only taproom with no confirmed screens — you'd be hoping they rig something up.",
+    est:800, estLabel:"~$800", estS:"guess",
+    res:"Flat Club Room rental (~$200–400 est.)", resS:"guess",
+    fb:"No min · ~$450 beer (food trucks)", fbS:"guess",
+    desc:"A Woodinville taproom whose semi-private 'Club Room' fits 25–50 and is reportedly a flat rental with no F&B minimum. Food-truck friendly (no kitchen). The open question is screens — confirm they'll set up a TV/projector.",
+    min:"Reportedly none (verify)", minClass:"ask", minS:"guess",
+    food:"Food trucks / outside food accommodated (no kitchen)", foodClass:"yes", foodS:"web",
+    audio:"Unsure — no evidence of game audio; rated a loud, echoey hall (SoundPrint) — confirm sound", audioClass:"ask", audioS:"unsure",
+    tv:"Listings cite large screens for sports + a 'TV' amenity (review) — confirm Club Room screen setup", tvS:"review",
+    addr:"15902 Woodinville-Redmond Rd NE, Woodinville, WA 98072",
+    links:[["Website","https://blackravenbrewing.com/pages/woodinville-tap-room"],["Events","https://blackravenbrewing.com/pages/events"]],
+    phone:"via event form"
+  },
+  {
+    name:"Métier Brewing — Woodinville", city:"Woodinville", type:"Brewery", pick:false, far:false, called:false,
+    exp:4, expNote:"Event space with a sound system but no confirmed screen, beer-only — energy hinges on a maybe.",
+    est:850, estLabel:"~$850", estS:"guess",
+    res:"Folded into minimum", resS:"guess",
+    fb:"~$850 beverage min (outside food OK)", fbS:"guess",
+    desc:"A Woodinville event space for up to 50 that allows outside food, catering or food trucks, with a sound system and 40 free parking spots. Viable only if they'll set up a screen — TVs/projector aren't confirmed at this location.",
+    min:"Varies by group size", minClass:"ask", minS:"web",
+    food:"Outside food / catering / food trucks ALLOWED", foodClass:"yes", foodS:"web",
+    audio:"Yes — official rental page lists 'access to audio system,' so game sound can play through it", audioClass:"yes", audioS:"web",
+    tv:"Reviewer cites a big wall projector 'perfect for a football game' (site lists screens for Cherry St — confirm Woodinville)", tvS:"review",
+    addr:"14125 NE 189th St, Woodinville, WA 98072",
+    links:[["Website","https://metierbrewing.com/venue-rental-event-space/"]],
+    phone:"via site"
+  },
+  {
+    name:"Chainline Brewing — Kirkland", city:"Kirkland", type:"Brewery", pick:false, far:false, called:false,
+    exp:5, expNote:"Casual beer-forward room that shows sports, but screen count is unknown and it stays taproom-quiet.",
+    est:750, estLabel:"~$750", estS:"guess",
+    res:"Event terms (quote)", resS:"guess",
+    fb:"~$750 (food-truck model)", fbS:"guess",
+    desc:"Two Kirkland locations; the 'Station' site markets itself for events and shows sports on its TVs, with a rotating food truck (so outside food is generally fine). Casual, beer-forward backup.",
+    min:"Flat rental fee, NO F&B minimum (beer-blog directory); dollar amount unpublished — buyout costs extra", minClass:"yes", minS:"web",
+    food:"Food-truck model — outside food likely fine (confirm)", foodClass:"ask", foodS:"guess",
+    audio:"Unsure — shows games on TVs/projector, but no source confirms broadcast sound; confirm audio", audioClass:"ask", audioS:"unsure",
+    tv:"Shows sports on TVs (count not specified)", tvS:"web",
+    addr:"604 5th Pl S, Kirkland, WA 98033 (Station) · also Kirkland Urban",
+    links:[["Website","https://chainlinebrewing.com/"],["Events","https://chainlinebrewing.com/events/"]],
+    phone:"(425) 542-4550 (Station)"
+  },
+
+  {
+    name:"Topgolf Seattle — Renton", city:"Renton", type:"Entertainment", pick:false, far:true, called:false,
+    exp:6, expNote:"HDTV in every bay and a full bar, but you're hitting balls — attention is split off the game.",
+    est:2000, estLabel:"~$2,000", estS:"web",
+    res:"Included in package", resS:"web",
+    fb:"$56/person = $1,680 + tax/fees", fbS:"web",
+    desc:"Every hitting bay has its own HDTV you can tune to the game, plus screens throughout the sports bar and a bookable Chairman's Suite. Closest Topgolf — note it's south of Lake Washington, ~15–20 min from Bellevue, not strictly Eastside.",
+    min:"Per-person package (13+)", minClass:"ask", minS:"web",
+    food:"Not allowed (store-bought cake OK if labeled)", foodClass:"no", foodS:"web",
+    audio:"You pick your bay's TV channel via the app & stream its audio to your phone (bays are muted) — confirm Chairman's Suite speaker sound", audioClass:"ask", audioS:"web",
+    tv:"HDTV in every bay + screens throughout; Chairman's Suite", tvS:"web",
+    addr:"780 Logan Ave N, Renton, WA 98057",
+    links:[["Website","https://topgolf.com/us/renton/"],["Plan event","https://topgolf.com/us/renton/plan-an-event/"]],
+    phone:"(425) 517-0695"
+  },
+  {
+    name:"Back9 Parlor", city:"Lynnwood", type:"Entertainment", pick:false, far:true, called:false,
+    exp:6, expNote:"Golf-sim sports bar with 7 TVs and a full bar; lively, but the sim bays pull focus.",
+    est:1400, estLabel:"~$1,200–1,600", estS:"guess",
+    res:"~$500–900 sim bays (3 hrs)", resS:"guess",
+    fb:"+ ~$600 F&B", fbS:"guess",
+    desc:"A newer golf-sim + sports bar with 6 Full Swing simulators, 7 independent TVs, a full bar and a lounge — put the game on the screens while groups rotate through sim bays. North of the Eastside in Lynnwood; buyouts available.",
+    min:"Full buyout (2 hrs): $1,000 non-peak / $1,200 peak (site); +hrs −10%; no per-person minimum", minClass:"ask", minS:"web",
+    food:"Not stated — full kitchen (assume no)", foodClass:"no", foodS:"guess",
+    audio:"Unsure — 7 'independent' TVs + full bar, but no online proof they run live-game audio; confirm", audioClass:"ask", audioS:"unsure",
+    tv:"7 independent TVs + 6 golf-sim bays", tvS:"web",
+    addr:"3105 Alderwood Mall Blvd, Ste A, Lynnwood, WA 98036",
+    links:[["Website","https://back9parlor.com/"]],
+    phone:"(425) 582-9813"
+  },
+  {
+    name:"Five Iron Golf — Kirkland", city:"Kirkland", type:"Entertainment", pick:false, far:false, called:false,
+    exp:6, expNote:"Upscale sim sports bar with TVs, cocktails and bowling — fun, but the game competes with the bays.",
+    est:2200, estLabel:"~$2,000+", estS:"guess",
+    res:"~5–6 bays contract", resS:"guess",
+    fb:"Min-spend ~$1,500–3,000 all-in", fbS:"guess",
+    desc:"An upscale Kirkland golf-sim venue that brands itself a 'full-service sports bar' — Trackman sims (multisport), duckpin bowling, TVs, cocktails and local brews. Groups over 12 book through the events team.",
+    min:"Min-spend on event contracts", minClass:"ask", minS:"web",
+    food:"Onsite catering only — no outside food", foodClass:"no", foodS:"web",
+    audio:"Unsure — bills itself a 'full-service sports bar' w/ big-screen TVs + watch parties, but Kirkland audio not confirmed online; confirm", audioClass:"ask", audioS:"unsure",
+    tv:"Sports-bar room with TVs + sim bays + duckpin bowling", tvS:"web",
+    addr:"425 Urban Plaza, Suite 200, Kirkland, WA 98033",
+    links:[["Website","https://fiveirongolf.com/locations/seattle-kirkland"],["Events","https://fiveirongolf.com/events"]],
+    phone:"(800) 513-5153"
+  },
+
+  {
+    name:"Northwest Brewing Co. — Pint & Pie", city:"Redmond", type:"Brewery", pick:false, far:false, called:false,
+    exp:7, expNote:"Big-screen TVs, beer on tap and a casual sports vibe; a true private room and game audio aren't confirmed.",
+    est:1100, estLabel:"~$1,000–1,150", estS:"guess",
+    res:"No published room fee — reserved section / 'book a party' inquiry", resS:"web",
+    fb:"No stated min · ~$1,000–1,150 (~$33–38/person: pies/pizza + 2–3 drinks)", fbS:"guess",
+    desc:"Downtown Redmond brewpub pouring craft beer plus savory/sweet pies and pizzas, with big-screen TVs for sports and a family/dog-friendly vibe. The site openly promotes group bookings ('book your next party'), so a ~30 group is realistic — but it's a relaxed pub, not a dedicated sports bar, so expect a reserved section rather than a walled-off room. Confirm they'll put the game's audio on the TVs.",
+    min:"No published F&B minimum or deposit", minClass:"ask", minS:"web",
+    food:"Full kitchen (pies, pizza) — outside food not permitted", foodClass:"no", foodS:"guess",
+    audio:"Unsure — shows sports/matches on TVs, but NFL game audio over the room isn't stated; confirm", audioClass:"ask", audioS:"unsure",
+    tv:"Big-screen TVs throughout for sports/events (likely shared, not a dedicated private screen)", tvS:"web",
+    addr:"7858 NE Leary Way, Redmond, WA 98052",
+    links:[["Website","https://redmond.pintnpie.com/"],["Events","https://redmond.pintnpie.com/redmond-pint-and-pie-redmond-events"]],
+    phone:"(425) 658-3157"
+  },
+  {
+    name:"Matt's Rotisserie & Oyster Lounge", city:"Redmond", type:"Sports bar", pick:false, far:false, called:false,
+    exp:4, expNote:"Upscale Redmond Town Center seafood/steak: the private room has one big TV, but it's a dining room, not a game-day vibe.",
+    est:1800, estLabel:"~$1,800", estS:"guess",
+    res:"Private Dining Room (seats 54) via private-events form/quote", resS:"web",
+    fb:"Customizable group/banquet menus + full bar (upscale per-head spend)", fbS:"web",
+    desc:"Upscale-casual seafood and rotisserie spot in Redmond Town Center with a big oval Oyster Lounge bar. The Private Dining Room seats up to 54 (private entrance, one large-screen TV with complimentary HDMI), so a ~30 watch party fits — but the room and pricing skew toward a nice dinner, not a rowdy game. It's a single presentation TV, not a wall of screens; confirm a live cable feed and audio.",
+    min:"No published F&B minimum or room fee — quote required", minClass:"ask", minS:"web",
+    food:"Full-service kitchen — no outside food", foodClass:"no", foodS:"web",
+    audio:"Unsure — private room has a big TV + HDMI (built for presentations); confirm live NFL feed & audio", audioClass:"ask", audioS:"unsure",
+    tv:"Private Dining Room: one large-screen TV w/ HDMI; Oyster Lounge bar TVs (count unconfirmed)", tvS:"web",
+    addr:"7325 166th Ave NE, Suite F210, Redmond, WA 98052",
+    links:[["Website","https://www.mattsrotisserie.com/"],["Private events","https://www.mattsrotisserie.com/private-events/"]],
+    phone:"(425) 376-0909"
+  },
+  {
+    name:"Three Lions Pub", city:"Redmond", type:"Sports bar", pick:false, far:false, called:false,
+    exp:6, expNote:"Authentic British pub, multiple screens, takes group bookings — but soccer-first, so confirm they'll run NFL audio.",
+    est:700, estLabel:"~$700", estS:"guess",
+    res:"Group reservations / private parties by inquiry (no online booking)", resS:"web",
+    fb:"No min · ~$700 (~$23/person): pub menu (fish & chips, burgers) + pints", fbS:"web",
+    desc:"A casual British pub in downtown Redmond with multiple screens, darts and trivia. Soccer/EPL is the main event, but it shows up on NFL-watch lists and the DIRECTV Sport Bar Finder, and it advertises group reservations and private parties. Capacity, minimums and pricing aren't published, and as a soccer-first pub the big question is whether they'll run NFL game audio over the room.",
+    min:"No published minimum — likely an F&B arrangement for 30; confirm", minClass:"ask", minS:"guess",
+    food:"Full pub kitchen — outside food very unlikely", foodClass:"no", foodS:"guess",
+    audio:"Unsure — British/soccer-first pubs usually run EPL audio; confirm NFL game audio", audioClass:"ask", audioS:"unsure",
+    tv:"Multiple screens throughout; listed on DIRECTV Sport Bar Finder (no big-screen/projector spec)", tvS:"web",
+    addr:"8115 161st Ave NE, Redmond, WA 98052",
+    links:[["Website","https://thethreelionspubwa.com/"],["Groups & parties","https://thethreelionspubwa.com/redmond-redmond-the-three-lions-pub-party"]],
+    phone:"(425) 284-3399"
+  },
+  {
+    name:"Kalia Indian Cuisine & Sports Lounge", city:"Lynnwood", type:"Sports bar", pick:false, far:true, called:false,
+    exp:6, expNote:"Distinctive Indian food + big screens; a fun, food-included pick — but it's up in Lynnwood, well north of the Eastside.",
+    est:900, estLabel:"~$900", estS:"guess",
+    res:"Hosts large groups / private events by inquiry — no published room fee", resS:"web",
+    fb:"~$900 (~$25–30/person): full Indian menu + cocktails", fbS:"guess",
+    desc:"An Indian restaurant doubling as a sports lounge, where groups watch live games on big screens over curries, tandoor and cocktails. It says it's happy to host large groups and private events, but publishes no capacity, room or minimum details. A distinctive, food-forward option — the catch is location: it's in Lynnwood (Snohomish County), well north of the Eastside, and game audio isn't confirmed.",
+    min:"No published F&B minimum — ask when booking a group", minClass:"ask", minS:"guess",
+    food:"Full Indian kitchen — outside food not permitted", foodClass:"no", foodS:"guess",
+    audio:"Unsure — markets watching games on screens, but NFL game audio not verified; confirm", audioClass:"ask", audioS:"unsure",
+    tv:"Multiple HD big screens throughout the lounge (count / private-screen control unconfirmed)", tvS:"web",
+    addr:"1402 164th St SW, Suite 306, Lynnwood, WA 98087",
+    links:[["Website","https://kaliaindiancuisine.com/"]],
+    phone:"(425) 771-6422"
+  },
+  {
+    name:"Sam's Tavern — South Lake Union", city:"Seattle", type:"Sports bar", pick:false, far:true, called:true,
+    exp:9, expNote:"Burger-and-sports tavern: big screens throughout WITH game audio (confirmed), Seahawks flags, glass-door patio — real game-day energy, just across the lake.",
+    callNotes:"Per your call — group terms are a flat $40/person food & drink minimum (≈ $1,200 for 30), they allow outside food, and they confirmed they play the game's audio. Worth holding a section or the patio early for an NFL Sunday.",
+    est:1200, estLabel:"~$1,200", estS:"call",
+    res:"No room fee — held section / patio for groups (10+ via Resy)", resS:"web",
+    fb:"$40/person food & drink minimum (≈ $1,200 for 30)", fbS:"call",
+    desc:"The one surviving Eastside-adjacent Sam's Tavern: a burger-and-sports tavern at 400 9th Ave N in South Lake Union with reclaimed-wood/exposed-brick decor, big screens throughout, and a large covered patio fronted by glass hydraulic doors. It roots for the home teams and shows NFL/Seahawks. Group terms are a flat $40/person food-and-drink minimum and — unusually for a full-kitchen burger bar — they let you bring outside food. A ~30 watch party would take a held section or the patio bar rather than a dedicated room. It's in Seattle, so a cross-lake drive from the Eastside.",
+    min:"$40/person food & drink minimum", minClass:"ask", minS:"call",
+    food:"Outside food ALLOWED (despite the full kitchen)", foodClass:"yes", foodS:"call",
+    audio:"YES — they play the game's audio (confirmed)", audioClass:"yes", audioS:"call",
+    tv:"Big screens throughout the bar + covered patio ('never miss a play')", tvS:"web",
+    addr:"400 9th Ave N, Seattle, WA 98109",
+    links:[["Website","https://samstavern.net/sams_location/south-lake-union/"]],
+    phone:"(206) 453-5493"
+  },
+
+  // ───────── SEATTLE (across Lake WA; ~20–35 min from Bellevue) ─────────
+  {
+    name:"Tom's Watch Bar (Climate Pledge)", city:"Seattle", type:"Sports bar", pick:true, far:true, called:false,
+    exp:10, expNote:"24,000 sq ft, 100+ HD screens, 360° viewing and premium 'stadium sound' — the most over-the-top watch room in the region. Book a Lower Deck or Terrace section.",
+    est:2000, estLabel:"~$2,000", estS:"guess",
+    res:"Private/semi-private sections for 15–150 via an event planner; or reserved seats ~$20 (GA) / ~$40 (VIP), ~2.5 hr window from kickoff. Book early for NFL Sundays.", resS:"web",
+    fb:"~$36–52/person event packages; full bar, craft taps, cocktails", fbS:"web",
+    desc:"Across from Climate Pledge Arena in Lower Queen Anne. Opened 2025: three levels, 100+ screens, premium sound and a chef-driven sports-bar menu. The flashiest 30-person Seahawks option in Seattle — reserve a Lower Deck or Terrace section.",
+    min:"Private events ~$1,900–3,750 / packages $36–75/person; expect an F&B minimum on an NFL Sunday", minClass:"ask", minS:"web",
+    food:"Not allowed — full kitchen + catering", foodClass:"no", foodS:"guess",
+    audio:"Yes — markets 'premium / stadium sound'; event spaces include a dedicated sound system to pipe game audio to your section", audioClass:"yes", audioS:"web",
+    tv:"100+ HD screens, 360° viewing; stadium-sized screens; AV in private spaces", tvS:"web",
+    addr:"105 Lenny Wilkens Way, Seattle, WA 98109",
+    links:[["Website","https://tomswatchbar.com/seattle-climate-pledge/"],["Private events","https://tomswatchbar.com/seattle-climate-pledge/private-events/"]],
+    phone:"(206) 486-7670"
+  },
+  {
+    name:"Buckley's in Belltown", city:"Seattle", type:"Sports bar", pick:true, far:true, called:false,
+    exp:9, expNote:"Official Seahawks Bar Alliance bar: wall-to-wall TVs with FULL game sound, booths with their own TV, two private rooms with A/V hookups. Plays every game every Sunday.",
+    est:1500, estLabel:"~$1,500", estS:"guess",
+    res:"Takes reservations; two private rooms with A/V hookups. Book via the parties page or call.", resS:"web",
+    fb:"Full bar + 24 rotating drafts; ~$15–20 entrees", fbS:"web",
+    desc:"Belltown's flagship Seahawks bar and an official Seahawks Bar Alliance member. Wall-to-wall TVs with full game audio, plus two private/semi-private rooms with A/V hookups so your group can watch together. Per their FAQ the Belltown location plays every game every Sunday.",
+    min:"Two private rooms, customizable menu; no published minimum — call to confirm", minClass:"ask", minS:"web",
+    food:"Not allowed — full kitchen (Angus burgers, wings, riblets, tots)", foodClass:"no", foodS:"web",
+    audio:"Yes — Seahawks Bar Alliance bar that plays full game sound", audioClass:"yes", audioS:"web",
+    tv:"Wall-to-wall TVs; booths have their own TV; private rooms have A/V hookups", tvS:"web",
+    addr:"2331 2nd Ave, Seattle, WA 98121",
+    links:[["Website","https://buckleyspubs.com/"],["Seahawks Bar Alliance","https://www.seahawks.com/game-day/bar-alliance/"]],
+    phone:"(206) 588-8879"
+  },
+  {
+    name:"Rhein Haus", city:"Seattle", type:"Sports bar", pick:true, far:true, called:false,
+    exp:9, expNote:"Capitol Hill bier hall built for crowds: 20+ big screens, NFL Sunday Ticket, a dedicated Seahawks watch program, and a ~30-person East Mezzanine with NO room-rental fee. Bocce courts for downtime.",
+    est:1500, estLabel:"~$1,500", estS:"web",
+    res:"Private/semi-private spaces: East Mezzanine (~30), West Mezzanine (~40), Bocce Den, Back Half (150). No room-rental fee — just an F&B minimum; card held to confirm. Bocce $60/hr/court.", resS:"web",
+    fb:"No rental fee; F&B minimum varies by space/time/season; +3% admin & 2% facility fee", fbS:"web",
+    desc:"Capitol Hill's strongest big-group game venue: a 10,000 sq ft German bier hall with three bars, 20+ big screens and NFL Sunday Ticket. The East Mezzanine fits ~30 with no rental fee, only an F&B minimum, and six bocce courts give the group something to do between drives.",
+    min:"No rental fee; F&B minimum (varies) + card on file; +3% admin & 2% facility fees", minClass:"yes", minS:"web",
+    food:"Not allowed — full German kitchen (pretzels, sausages, schnitzel) + in-house catering", foodClass:"no", foodS:"web",
+    audio:"Yes — official post promises 'Sound ON. Every Seahawks game' on 20+ screens via Sunday Ticket (loud beer-hall energy)", audioClass:"yes", audioS:"web",
+    tv:"20+ big-screen TVs across the hall + three bars", tvS:"web",
+    addr:"912 12th Ave, Seattle, WA 98122",
+    links:[["Website","https://www.rheinhausseattle.com/"],["Seahawks page","https://www.rheinhausseattle.com/seattle-seahawks"],["Private parties","https://www.rheinhausseattle.com/private-parties"]],
+    phone:"(206) 800-8838"
+  },
+  {
+    name:"The Dock Sport Bar & Grill", city:"Seattle", type:"Sports bar", pick:true, far:true, called:false,
+    exp:9, expNote:"Fremont's purpose-built NFL bar: 28 HD TVs, NFL Sunday Ticket, 'Seahawks Sundays' by name and an explicit 'Full Sound!' policy. Outdoor deck + covered beer garden by Gas Works Park.",
+    est:1200, estLabel:"~$1,200", estS:"guess",
+    res:"Private-party booking via the website form / email; built to host large parties. Semi-private details not published — call to confirm.", resS:"web",
+    fb:"Full menu (wings, burgers, apps), 22 taps + cocktails; F&B minimum/deposit not published — call", fbS:"web",
+    desc:"The clearest Fremont match for a Seahawks Sunday: 28 HD TVs, NFL Sunday Ticket, 'Seahawks Sundays' called out by name and an explicit full-sound policy. Family-owned since 2012, with an outdoor deck and covered beer garden steps from Gas Works Park.",
+    min:"Deposit likely for a private party; amount unpublished — call", minClass:"ask", minS:"web",
+    food:"Not allowed — full kitchen (outside-food policy not published)", foodClass:"no", foodS:"guess",
+    audio:"Yes — site touts 'Full Sound!' for game days and high-energy Seahawks Sundays", audioClass:"yes", audioS:"web",
+    tv:"28 HD TVs incl. two 70-inch outdoor sets; NFL Sunday Ticket + NBA League Pass", tvS:"web",
+    addr:"1102 N 34th St, Seattle, WA 98103",
+    links:[["Website","https://fremontdock.com/"],["Yelp","https://www.yelp.com/biz/the-dock-sports-bar-and-grill-seattle"]],
+    phone:"(206) 829-8372"
+  },
+  {
+    name:"Slim Goody Sports Bar", city:"Seattle", type:"Sports bar", pick:true, far:true, called:false,
+    exp:9, expNote:"Ballard's newest, most polished sports bar: 23+ HD TVs and a private 'Legend's Lounge' built for 30+ with its own sportsbook wall of screens and a 65-inch bar TV. 'If it's on, we'll play it.' Book on Tock.",
+    est:1800, estLabel:"~$1,800", estS:"guess",
+    res:"Legend's Lounge: 30+ guests, 4 HDTVs in a sportsbook layout + a private bar with a 65-inch TV. Book via Tock or email events@slimgoodyseattle.com.", resS:"web",
+    fb:"Full bar, 12 rotating taps, all major sports packages; elevated pub food; lounge F&B minimum not published — inquire", fbS:"web",
+    desc:"Ballard's newest and most polished sports bar. The Legend's Lounge is essentially a private sportsbook room sized for exactly this group, with its own bar and a wall of HDTVs — the clearest path to a guaranteed reserved space (book on Tock).",
+    min:"Legend's Lounge F&B minimum not published; email events@slimgoodyseattle.com", minClass:"ask", minS:"web",
+    food:"Not allowed — full kitchen (smashburgers, wings, curds); outside-food policy not confirmed", foodClass:"no", foodS:"web",
+    audio:"Yes — house policy is 'if it's on, we'll play it' (sound on for all major sports)", audioClass:"yes", audioS:"web",
+    tv:"23+ HD TVs; Legend's Lounge has 4 sportsbook-layout HDTVs + a 65-inch private-bar TV", tvS:"web",
+    addr:"5411 Ballard Ave NW, Seattle, WA 98107",
+    links:[["Website","https://slimgoodyseattle.com/"],["Reserve (Tock)","https://www.exploretock.com/slim-goody-seattle"]],
+    phone:"(206) 420-2277"
+  },
+  {
+    name:"Hatback Bar & Grille (Victory Hall)", city:"Seattle", type:"Sports bar", pick:false, far:true, called:false,
+    exp:9, expNote:"In the SODO Boxyard across from the stadiums: 20+ 4K TVs plus a 23-ft 'VictoryVision' jumbo screen and an on-site brewery. Note: no game-day floor reservations — you book the private SkyBox.",
+    est:2200, estLabel:"~$2,200", estS:"guess",
+    res:"No floor reservations on Seahawks game days — book the private SkyBox (up to 70; great for 30) or the Dugout / Steelheads Alley as a private event.", resS:"web",
+    fb:"~$2,000 private-event F&B minimum (confirm for NFL game day); on-site microbrewery + elevated pub fare", fbS:"web",
+    desc:"In the SODO Boxyard between Lumen Field and T-Mobile Park (~0.2 mi away), on the site of the old Pyramid Alehouse. On-site Steelheads Alley / Métier microbrewery, NFL Sunday Ticket and a 23-ft jumbo screen — the de facto Seahawks pregame hub. Book the SkyBox for a private 30-person room.",
+    min:"~$2,000 private-event F&B minimum (confirm for NFL game day)", minClass:"ask", minS:"web",
+    food:"Not allowed — full kitchen + on-site brewery", foodClass:"no", foodS:"web",
+    audio:"Likely — markets itself as a Seahawks/Kraken watch hub with NFL Sunday Ticket, but game audio not explicitly confirmed; confirm", audioClass:"ask", audioS:"unsure",
+    tv:"20+ big-screen 4K TVs + a 23-ft VictoryVision jumbo screen (largest in the district)", tvS:"web",
+    addr:"1201 1st Ave S, Seattle, WA 98134",
+    links:[["Website","https://www.hatback.com"],["Private events","https://www.hatback.com/private-events/"],["Seahawks page","https://www.hatback.com/seattle-seahawks/"]],
+    phone:"(206) 346-4990"
+  },
+  {
+    name:"Gantry Stadium (Gantry Public House)", city:"Seattle", type:"Sports bar", pick:false, far:true, called:false,
+    exp:9, expNote:"Literally across the street from Lumen Field's north entrance: 15+ screens plus 5 projectors — one of the highest screen counts in the stadium district. Hosted a packed Seahawks Super Bowl LX watch party.",
+    est:1800, estLabel:"~$1,800", estS:"guess",
+    res:"'Gantry Hall' available for private/flexible group events with tailored menus; reserve a section for 30 by phone/email (no online booking).", resS:"web",
+    fb:"Negotiated F&B minimum likely (none published); local taps + burgers/nachos/gourmet dogs", fbS:"guess",
+    desc:"At 904 Occidental Ave S, directly across from Lumen Field — the closest bar to the stadium. Full bar, local beer on tap and reasonably priced game-day food, with 15+ screens and 5 projectors for big crowd energy. 'Gantry Hall' handles private group events.",
+    min:"Not published; likely a negotiated minimum for Gantry Hall — confirm", minClass:"ask", minS:"unsure",
+    food:"Not allowed — full kitchen (burgers, nachos, gourmet hot dogs)", foodClass:"no", foodS:"guess",
+    audio:"Likely — a sports-focused venue showing live games, but game audio not explicitly confirmed; confirm", audioClass:"ask", audioS:"unsure",
+    tv:"15+ screens plus 5 projectors", tvS:"web",
+    addr:"904 Occidental Ave S, Seattle, WA 98134",
+    links:[["Website","https://www.gantryseattle.com/"]],
+    phone:"(206) 268-0318"
+  },
+  {
+    name:"The Westy Roosevelt", city:"Seattle", type:"Sports bar", pick:false, far:true, called:false,
+    exp:9, expNote:"Polished Roosevelt sports bar: 18+ TVs with great sightlines and a private back room (seats 32) with its own projector — NO room-rental fee, just an F&B minimum. A block from Roosevelt light rail.",
+    est:1500, estLabel:"~$1,500", estS:"guess",
+    res:"Private back room: 32 seated / 45 standing with a full projector. No room-rental fee — F&B minimum only. Reserve via the online event-request form or call.", resS:"web",
+    fb:"No rental fee; F&B minimum (amount not published; est. ~$1,000–1,500 for 30 over 3 hrs)", fbS:"web",
+    desc:"A polished Roosevelt/Green Lake-area sports bar with 18+ TVs, elevated bar food and 120+ whiskies. Its private back room seats 32 with its own projector — no room fee, just an F&B minimum — and it's a block from Roosevelt light rail (easy from the Eastside via transit).",
+    min:"F&B minimum only, no room fee (amount not published — inquire)", minClass:"yes", minS:"web",
+    food:"Not allowed — full kitchen (wings, sandwiches, tacos)", foodClass:"no", foodS:"web",
+    audio:"Yes (review) — a regular reported 'good TVs, good sound' watching NFL opening week", audioClass:"yes", audioS:"review",
+    tv:"18+ HDTVs throughout; private back room has a full projector", tvS:"review",
+    addr:"1215 NE 65th St, Seattle, WA 98115",
+    links:[["Website","https://www.thewestyseattle.com/location/the-westy-roosevelt/"],["Group dining","https://www.thewestyseattle.com/group-dining/"]],
+    phone:"(206) 402-5518"
+  },
+  {
+    name:"Flatstick Pub — Pioneer Square", city:"Seattle", type:"Entertainment", pick:false, far:true, called:false,
+    exp:8, expNote:"Subterranean Pioneer Square man-cave 5 min from Lumen: 19 TVs with wall-to-wall screens, 36 WA craft taps, NFL Sunday Ticket and an 8am open on Seahawks home Sundays — plus indoor mini-golf. Loud, and no hard liquor.",
+    est:1500, estLabel:"~$1,500", estS:"guess",
+    res:"Built for groups (10–300+): semi-private areas + full-buyout option and an events team. A ~30-person space is bookable — confirm the room and rate on the inquiry call.", resS:"web",
+    fb:"Group food packages ~$15–20/person; brick-oven pizza; WA-only craft beer/cider + batch cocktails (no hard liquor)", fbS:"web",
+    desc:"A 9,500 sq ft subterranean Pioneer Square man-cave ~5 min from Lumen, with 19 TVs, 36 WA-only craft taps, brick-oven pizza and indoor mini-golf. Opens 8am on Seahawks home Sundays and lands on Yelp's top pregame-bar lists. 21+; gets very loud.",
+    min:"Not published; confirm room rate / F&B minimum by phone", minClass:"ask", minS:"unsure",
+    food:"In-house brick-oven pizza + group packages; chain FAQ generally bars outside food except desserts — confirm", foodClass:"ask", foodS:"web",
+    audio:"Opens 8am on Seahawks Sundays and lands on top-pregame lists (strong signal sound's on), but not explicitly confirmed; confirm your room's TV audio", audioClass:"ask", audioS:"unsure",
+    tv:"19 TVs, wall-to-wall big screens", tvS:"web",
+    addr:"240 2nd Ave S, Seattle, WA 98104",
+    links:[["Website","https://flatstickpub.com/pioneer-square/"],["Events","https://flatstickpub.reservewithrex.com"]],
+    phone:"(206) 682-0608"
+  },
+  {
+    name:"GameWorks Seattle", city:"Seattle", type:"Entertainment", pick:false, far:true, called:false,
+    exp:7, expNote:"Downtown arcade + sports bar + esports lounge: ~15 big screens 'perfect to watch your favorite teams,' full bar and a group-events team — but attention splits with the arcade. Reopened 2022 (verified open 2026).",
+    est:1500, estLabel:"~$1,300–1,700", estS:"guess",
+    res:"Private/semi-private event packages, groups 10–1,000+; Mon/Tue full buyouts. Book via info@gameworks.com or the events page (game-play cards + F&B packages).", resS:"web",
+    fb:"~$30–45/person food + drinks over 3 hrs; arcade play often bundled", fbS:"guess",
+    desc:"Downtown Seattle arcade, sports bar and esports lounge with ~15 large screens 'perfect to watch your favorite teams,' a comfort-food kitchen and a full bar (18+ after ~10pm). A dedicated events team makes a 30-person Seahawks Sunday + activities easy. Reopened 2022 under new ownership.",
+    min:"Likely an F&B minimum or per-head package for reserved space (not published) — confirm", minClass:"ask", minS:"web",
+    food:"Not allowed — in-house kitchen + catering menus", foodClass:"no", foodS:"web",
+    audio:"Unsure — shows games on the big screens, but sound-on for the game not confirmed online; ask for a reserved area with game audio", audioClass:"ask", audioS:"unsure",
+    tv:"~15 large-screen TVs across the venue + arcade & esports", tvS:"web",
+    addr:"1511 7th Ave, Seattle, WA 98101",
+    links:[["Website","https://www.gameworks.com/locations/seattle/"],["Events","https://www.gameworks.com/location/seattle/events-parties/"]],
+    phone:"(425) 307-8070"
+  },
+  {
+    name:"Buckley's on Queen Anne", city:"Seattle", type:"Sports bar", pick:false, far:true, called:false,
+    exp:8, expNote:"Queen Anne Seahawks staple: a 140-inch video screen plus wall-to-wall big-screen TVs with FULL game sound and 12 rotating drafts. Caveat: NO reservations on Climate Pledge Arena event days.",
+    est:1500, estLabel:"~$1,500", estS:"guess",
+    res:"Takes reservations (management must approve via the Parties tab / email); NO reservations on Climate Pledge Arena event days — confirm your Sunday early.", resS:"web",
+    fb:"Full bar; 12 rotating drafts; ~$15–22 entrees", fbS:"web",
+    desc:"A Lower/Upper Queen Anne sports bar ~5 min from Climate Pledge Arena, with a 140-inch video screen plus wall-to-wall big-screen TVs and full game sound. Hosts group reservations and bespoke banquets — but won't take reservations on arena event days, so confirm the date.",
+    min:"No published minimum; party pricing quoted on request — confirm F&B minimum/deposit", minClass:"ask", minS:"web",
+    food:"Not allowed — full kitchen (burgers, wings, ribs, brunch)", foodClass:"no", foodS:"web",
+    audio:"Yes — plays full game sound on game day (TVs set by staff, not adjustable)", audioClass:"yes", audioS:"web",
+    tv:"140-inch video screen + multiple wall-to-wall big-screen TVs", tvS:"web",
+    addr:"232 1st Ave W, Seattle, WA 98119",
+    links:[["Website","https://buckleyspubs.com/"],["Parties / FAQ","https://buckleyspubs.com/seattle-queen-anne-buckley-s-on-queen-anne-faq"]],
+    phone:"(206) 691-0232"
+  },
+  {
+    name:"Fuel Sports Grill — Crown Hill", city:"Seattle", type:"Sports bar", pick:false, far:true, called:false,
+    exp:7, expNote:"Serious 5,000 sq ft sports bar in Crown Hill (North Ballard): 25 flatscreens + a big projector, 'state-of-the-art sound,' all league packages and 25 free parking spots. No dedicated private room, but the size absorbs 30 easily.",
+    est:1800, estLabel:"~$1,800", estS:"guess",
+    res:"Accepts reservations; no published private room, but 5,000 sq ft absorbs a 30-person group — call to arrange seating.", resS:"web",
+    fb:"Full bar + full kitchen; NFL Ticket / MLB / MLS / NBA / NHL; no published F&B minimum", fbS:"web",
+    desc:"A big, dedicated sports bar in Crown Hill (North Ballard) with 25 flatscreens, a projector, a real sound system, every sports package and 25 free parking spots — a strong, easy-parking fallback if the Ballard picks are booked. ~1.5 mi north of central Ballard.",
+    min:"No published F&B minimum; likely none for general seating — call", minClass:"ask", minS:"guess",
+    food:"Not allowed — full kitchen (burgers, apps, weekend brunch)", foodClass:"no", foodS:"web",
+    audio:"Yes — official site touts 'state-of-the-art sound' + all major sports packages", audioClass:"yes", audioS:"web",
+    tv:"25 flatscreen TVs + 1 large projector; outdoor patio TVs", tvS:"web",
+    addr:"8037 15th Ave NW, Seattle, WA 98117",
+    links:[["Website","https://www.fuelseattle.com/"],["Yelp","https://www.yelp.com/biz/fuel-sports-grill-seattle-2"]],
+    phone:"(206) 405-3835"
+  }
+];
+
+// ---- room photos (researched Jun 2026) ----
+// [file, caption, isActualSpace] — isActualSpace=true means the photo shows the
+// specific room/area we'd book; false means a representative shot of the venue's vibe.
+const ROOM_PHOTOS={
+  "Triplehorn Brewing Co.":["images/triplehorn.webp","Triplehorn's semi-private back room: long table, bar seating, corner TV",true],
+  "Tavern Hall":["images/tavern-hall.jpg","Tavern Hall private room: shuffleboard + flatscreen TV, fits ~30 (Clock Room)",true],
+  "Flatstick Pub — Kirkland":["images/flatstick-kirkland.png","Flatstick Kirkland mini-golf interior — general space, not the private event room",false],
+  "Moss Bay Hall":["images/moss-bay-hall.jpg","Moss Bay Hall private watch room: projector screen, TVs, lounge couches",true],
+  "Pub 85 (Pogacha)":["images/pub-85.jpg","Pub 85's game-room bar: HD TVs, neon, pool tables — you'd reserve a section here",false],
+  "The Goose Pub & Eatery":["images/goose-pub.jpg","The Goose Pub bar interior (venue's own photo) — you'd reserve a section",false],
+  "Bellevue Brewing — Spring District":["images/bellevue-brewing.jpg","Main hall bar w/ copper tanks & mounted TVs — claim a section for ~30",true],
+  "Forum Social House":["images/forum-social-house.jpg","Forum Social House clubhouse lounge: leather couches, projector screen, TV wall",true],
+  "Lucky Strike Bellevue":["images/lucky-strike.jpg","Lucky Strike bowling-lanes interior — the Luxe lounge isn't posted online",false],
+  "Central Bar + Restaurant":["images/central-bar.jpg","Central Bar dining section with booths, TVs and custom lighting (buyout area)",true],
+  "The Pumphouse Bar & Grill":["images/pumphouse.jpg","Pumphouse bar + HD TVs — reserved section, not a walled-off room",true],
+  "Dave & Buster's Bellevue":["images/dave-busters.jpg","D&B sports-bar vibe (official brand photo) — not the specific Bellevue room",false],
+  "The Lime":["images/the-lime.jpg","The Lime bar interior: long bar, overhead screens — reserved area for groups",true],
+  "The Game Neighborhood Grill":["images/game-grill.jpg","The Game interior: bar, wall-mounted TV, arcade and dining tables",true],
+  "Lucky 7 Bar and Grill":["images/lucky-7.jpg","Lucky 7's interior: pool, shuffleboard, darts, high-tops and TVs",true],
+  "Flatstick Pub — Redmond":["images/flatstick-redmond.jpg","Flatstick Redmond interior: communal high-top group seating by the bar",true],
+  "Stan's Bar-B-Q":["images/stans-bbq.jpg","Stan's Bar-B-Q interior: booths, bar and big-screen TVs",true],
+  "JJ Mahoney's Irish Pub":["images/jj-mahoneys.png","JJ Mahoney's interior: booths, bar and wall TVs",true],
+  "Redmond's Bar & Grill":["images/redmonds-grill.jpg","Redmond's Bar & Grill: full bar, TVs, big floor for a large group",true],
+  "The Black Duck Cask and Bottle":["images/black-duck.jpg","Black Duck gastropub bar: taps, tractor-seat stools, communal tables (~50 seats)",true],
+  "Postdoc Brewing":["images/postdoc.jpg","Postdoc taproom bar/tap wall — the reservable indoor room itself isn't posted",false],
+  "Big Block Brewery — Sammamish":["images/big-block.jpg","Big Block taproom packed with a seated group by the tap wall",true],
+  "Black Raven Brewing — Woodinville":["images/black-raven.jpg","Black Raven Woodinville taproom: TVs, communal tables — main room, not the Club Room",false],
+  "Métier Brewing — Woodinville":["images/metier.png","Métier Woodinville event space: communal tables, art wall, roll-up garage door",true],
+  "Chainline Brewing — Kirkland":["images/chainline.jpg","Chainline Station outdoor beer garden + caboose (the open-air Station site)",true],
+  "Topgolf Seattle — Renton":["images/topgolf-renton.jpg","Topgolf Renton hitting bays with Toptracer HDTV terminals",true],
+  "Back9 Parlor":["images/back9-parlor.jpg","Back9 Parlor lounge — the buyout space for ~30 guests",true],
+  "Five Iron Golf — Kirkland":["images/five-iron.webp","Five Iron Kirkland: Trackman sim bays with bar seating & TVs",true],
+  "Northwest Brewing Co. — Pint & Pie":["images/northwest-brewing.jpg","Northwest Brewing (Pint & Pie) Redmond dining room with mountain mural",true],
+  "Matt's Rotisserie & Oyster Lounge":["images/matts-rotisserie.jpg","Matt's private dining room (venue photo); the 54-seat room holds the TV",true],
+  "Three Lions Pub":["images/three-lions.jpg","Three Lions Pub Redmond interior bar area (venue site)",true],
+  "Kalia Indian Cuisine & Sports Lounge":["images/kalia.jpg","Kalia food spread (venue site) — the lounge/screens room isn't posted online",false],
+  "Sam's Tavern — South Lake Union":["images/sams-tavern-slu.jpg","Sam's Tavern SLU covered patio bar with Seahawks flag and glass hydraulic doors",true]
+};
+venues.forEach(v=>{const p=ROOM_PHOTOS[v.name]; if(p){v.img=p[0];v.imgCap=p[1];v.imgActual=p[2];}});
+
+// ---- source badge ----
+const SRC={
+  call:['s-call','✅ called'],
+  web:['s-web','📄 online'],
+  guess:['s-guess','≈ estimate'],
+  review:['s-review','💬 reviews'],
+  unsure:['s-unsure','❓ unsure']
+};
+function sb(code){const m=SRC[code]||SRC.unsure;return `<span class="src ${m[0]}">${m[1]}</span>`;}
+
+// ---- starring: driven by the hand-edited STARRED list at the top of this script ----
+function isStarred(v){return STARRED.includes(v.name);}
+
+// ---- room photo thumbnail (click to expand) ----
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+function thumb(v){
+  if(!v.img) return "";
+  const tagTxt=v.imgActual?'Actual space':'Representative';
+  const tagCls=v.imgActual?'vtag-actual':'vtag-vibe';
+  return `<div class="vthumb" onclick="openLb(this)" data-full="${esc(v.img)}" data-cap="${esc(v.imgCap)}" data-actual="${v.imgActual?1:0}">
+    <img src="${esc(v.img)}" alt="${esc(v.name)} — room photo" loading="lazy">
+    <span class="vtag ${tagCls}">${tagTxt}</span>
+    <span class="vexp">🔍 expand</span>
+    <span class="vcap">${esc(v.imgCap)}</span>
+  </div>`;
+}
+
+// ---- experience rating (1–10): pure watch-party energy ----
+function expTier(s){return s>=8?'hi':s>=6?'mid':'lo';}
+function expBlock(v){
+  const t=expTier(v.exp);
+  const segs=Array.from({length:10},(_,i)=>`<span class="exp-seg ${i<v.exp?'on-'+t:''}"></span>`).join("");
+  return `<div class="exp exp-${t}" title="Watch-party energy: big screens + game audio + drinks on tap + a roaring crowd = 10">
+    <span class="exp-score">${v.exp}<small>/10</small></span>
+    <span class="exp-meter">${segs}</span>
+    <span class="exp-note">⚡ ${v.expNote}</span>
+  </div>`;
+}
+
+// ---- cost distribution buckets ----
+const buckets=[
+  {label:"Budget", price:"under $750", test:v=>v.est<750},
+  {label:"Value", price:"$750–999", test:v=>v.est>=750&&v.est<1000},
+  {label:"Mid", price:"$1,000–1,499", test:v=>v.est>=1000&&v.est<1500},
+  {label:"Higher", price:"$1,500–1,999", test:v=>v.est>=1500&&v.est<2000},
+  {label:"Premium", price:"$2,000+", test:v=>v.est>=2000}
+];
+function buildChart(passing){
+  const counts=buckets.map(b=>passing.filter(b.test).length);
+  const max=Math.max(...counts,1);
+  document.getElementById('chart').innerHTML=buckets.map((b,i)=>{
+    const h=counts[i]===0?0:Math.round((counts[i]/max)*100);
+    return `<div class="bar-col"><span class="bar-val">${counts[i]}</span><div class="bar" style="height:${h}%"></div></div>`;
+  }).join("");
+  document.getElementById('axis').innerHTML=buckets.map(b=>`<div>${b.label}<span class="price">${b.price}</span></div>`).join("");
+  document.getElementById('chartCount').textContent=`${passing.length} venue${passing.length===1?'':'s'} match`;
+}
+
+let cityFilter="all", typeFilter="all", foodFilter="all", audioFilter="all", expMin=0, starredOnly=false, calledOnly=false;
+
+// classify each venue's outside-food and NFL-audio status for filtering
+function foodStatus(v){ return v.foodClass==="yes"?"allowed":v.foodClass==="no"?"no":"unsure"; }
+function audioStatus(v){
+  if(v.audioClass==="no") return "no";
+  if(v.audioClass==="yes") return "yes";
+  return /^Likely YES/i.test(v.audio)?"yes":"unsure";
+}
+
+// single predicate shared by the chart and the grid
+function pass(v){
+  const q=document.getElementById('search').value.trim().toLowerCase();
+  return (cityFilter==="all"||v.city===cityFilter)
+    && (typeFilter==="all"||v.type===typeFilter)
+    && (foodFilter==="all"||foodStatus(v)===foodFilter)
+    && (audioFilter==="all"||audioStatus(v)===audioFilter)
+    && (v.exp>=expMin)
+    && (!starredOnly||isStarred(v)) && (!calledOnly||v.called)
+    && (!q||(v.name+" "+v.city+" "+v.type+" "+v.desc+" "+v.tv+" "+v.addr).toLowerCase().includes(q));
+}
+
+function render(){
+  const grid=document.getElementById('grid');
+  const sort=document.getElementById('sort').value;
+  let list=venues.map((v,i)=>({v,i}));
+  if(sort==="costAsc") list.sort((a,b)=>a.v.est-b.v.est||a.i-b.i);
+  else if(sort==="costDesc") list.sort((a,b)=>b.v.est-a.v.est||a.i-b.i);
+  else if(sort==="expDesc") list.sort((a,b)=>b.v.exp-a.v.exp||a.i-b.i);
+  else if(sort==="starred") list.sort((a,b)=>(isStarred(b.v)?1:0)-(isStarred(a.v)?1:0)||a.i-b.i);
+  buildChart(venues.filter(pass));
+  let shown=0;
+  grid.innerHTML=list.map(({v})=>{
+    const visible = pass(v);
+    if(visible) shown++;
+    const links=v.links.map(l=>`<a href="${l[1]}" target="_blank" rel="noopener">${l[0]} ↗</a>`).join("");
+    return `<div class="card ${isStarred(v)?'starred':''} ${v.called?'called':''} ${visible?'':'hidden'}">
+      <div>
+        ${thumb(v)}
+        <div class="flags">
+          ${isStarred(v)?'<span class="starflag">⭐ Starred</span>':''}
+          ${v.called?'<span class="calledflag">✅ Called</span>':''}
+        </div>
+        <div class="card-top">
+          <h2 class="vname">${v.name}</h2>
+          <span class="est-tag"><span class="lab">Est. / 30 ppl</span><span class="amt">${v.estLabel}</span></span>
+        </div>
+        <div class="badges">
+          <span class="badge b-city">${v.city}</span>
+          <span class="badge b-type">${v.type}</span>
+          ${v.far?'<span class="badge b-far">Outside core Eastside</span>':''}
+        </div>
+        ${expBlock(v)}
+        <p class="desc">${v.desc}</p>
+        ${v.called?`<div class="callnote">📞 <b>Call notes:</b> ${v.callNotes}</div>`:''}
+        <div class="estbox">
+          <div class="er"><span class="k">Reservation / room</span><span class="v">${v.res} ${sb(v.resS)}</span></div>
+          <div class="er"><span class="k">Food &amp; beverage</span><span class="v">${v.fb} ${sb(v.fbS)}</span></div>
+          <div class="er tot"><span class="k">Est. all-in (30 ppl)</span><span class="v">${v.estLabel} ${sb(v.estS)}</span></div>
+        </div>
+      </div>
+      <div class="rows">
+        <div class="row"><span class="k">Drink min</span><span class="v ${v.minClass}">${v.min} ${sb(v.minS)}</span></div>
+        <div class="row"><span class="k">Outside food</span><span class="v ${v.foodClass}">${v.food} ${sb(v.foodS)}</span></div>
+        <div class="row"><span class="k">NFL audio</span><span class="v ${v.audioClass}">${v.audio} ${sb(v.audioS)}</span></div>
+        <div class="row"><span class="k">Screens</span><span class="v"><span class="tv">${v.tv}</span> ${sb(v.tvS)}</span></div>
+        <div class="row"><span class="k">Address</span><span class="v">${v.addr}</span></div>
+        <div class="row"><span class="k">Phone</span><span class="v">${v.phone}</span></div>
+        <div class="links">${links}</div>
+      </div>
+    </div>`;
+  }).join("");
+  document.getElementById('count').textContent=`Showing ${shown} of ${venues.length} venues`;
+}
+function pick1(group,el){document.querySelectorAll('.btn.'+group).forEach(x=>x.classList.remove('active'));el.classList.add('active');}
+function setCity(b){cityFilter=b.dataset.city;pick1('city',b);render();}
+function setType(b){typeFilter=b.dataset.type;pick1('type',b);render();}
+function setFood(b){foodFilter=b.dataset.food;pick1('food',b);render();}
+function setAudio(b){audioFilter=b.dataset.audio;pick1('audio',b);render();}
+function setExp(el){expMin=+el.value;document.getElementById('expLabel').textContent=expMin===0?'Any (0+/10)':('≥ '+expMin+'/10');render();}
+function toggleStarred(b){starredOnly=!starredOnly;b.classList.toggle('active',starredOnly);render();}
+function toggleCalled(b){calledOnly=!calledOnly;b.classList.toggle('active',calledOnly);render();}
+function resetFilters(){
+  cityFilter=typeFilter=foodFilter=audioFilter="all";expMin=0;starredOnly=calledOnly=false;
+  document.getElementById('search').value="";document.getElementById('sort').value="default";
+  document.getElementById('expSlider').value=0;document.getElementById('expLabel').textContent="Any (0+/10)";
+  document.querySelectorAll('.btn.starredbtn,.btn.calledbtn').forEach(x=>x.classList.remove('active'));
+  ['city','type','food','audio'].forEach(g=>{
+    document.querySelectorAll('.btn.'+g).forEach(x=>x.classList.toggle('active',x.dataset[g]==="all"));
+  });
+  render();
+}
+
+// ---- lightbox (click a room photo to expand) ----
+function openLb(el){
+  const cap=el.dataset.cap, full=el.dataset.full, actual=el.dataset.actual==="1";
+  document.getElementById('lbimg').src=full;
+  const lbcap=document.getElementById('lbcap');
+  lbcap.innerHTML=`<span class="lbtag ${actual?'vtag-actual':'vtag-vibe'}">${actual?'Actual space':'Representative'}</span>`;
+  lbcap.appendChild(document.createTextNode(cap));
+  document.getElementById('lb').classList.add('open');
+}
+function closeLb(){document.getElementById('lb').classList.remove('open');document.getElementById('lbimg').src="";}
+document.addEventListener('keydown',e=>{if(e.key==="Escape")closeLb();});
+
+render();
+</script>
+
+<div class="lb" id="lb" onclick="closeLb()">
+  <span class="lbclose" onclick="closeLb()">&times;</span>
+  <img id="lbimg" src="" alt="Expanded room photo" onclick="event.stopPropagation()">
+  <div class="lbcap" id="lbcap"></div>
+</div>
+</body>
+</html>
