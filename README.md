@@ -14,14 +14,3 @@ Edit it, commit, and push; GitHub Pages redeploys automatically in ~1 minute.
 - Room photos are wired up in `const ROOM_PHOTOS = {...}` (keyed by venue name)
   and live in `images/`.
 - Starred picks are listed in `const STARRED = [...]`.
-
-## Offline / single-file copy
-
-To produce a self-contained HTML file with every photo embedded (for emailing or
-offline use, no `images/` folder needed):
-
-```
-python3 build-standalone.py
-```
-
-This writes `seahawks-watch-party-venues-standalone.html` (~9 MB, git-ignored).
